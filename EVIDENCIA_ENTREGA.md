@@ -10,7 +10,7 @@
 | Mapa con municipio seleccionado | Captura generada | `evidence/03_mapa_general_full.png` |
 | Capa PM2.5 funcionando | Captura generada | `evidence/04_capa_pm25_full.png` |
 | Sección de metodología y participación | Captura generada | `evidence/05_metodologia_participacion.png` |
-| URL pública de GitHub Pages | Pendiente de publicación | Por registrar |
+| URL pública de GitHub Pages | Publicada y validada | `https://heronrisk.github.io/pulso-ambiental-mty/` |
 
 ## Documento
 
@@ -36,3 +36,5 @@
 ## Observaciones
 
 El proyecto mantiene un alcance digital. No se requiere evidencia de traslados, impresiones, sensores ni mediciones de campo.
+
+URL final del sitio: https://heronrisk.github.io/pulso-ambiental-mty/

@@ -21,11 +21,11 @@ Este proyecto está preparado como sitio estático. No necesita `npm`, build ni 
 5. Esperar a que GitHub genere el enlace público.
 6. Registrar el enlace en el documento final y en la evidencia del proyecto.
 
-## URL Esperada
+## URL Final
 
-Si el repositorio se llama `pulso-ambiental-mty`, la URL normalmente tendrá esta forma:
+El sitio quedó publicado y validado en:
 
-`https://TU_USUARIO.github.io/pulso-ambiental-mty/`
+`https://heronrisk.github.io/pulso-ambiental-mty/`
 
 ## Nota De Presupuesto
 
