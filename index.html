@@ -9,39 +9,94 @@
   </head>
   <body>
     <div class="page-shell">
-      <header class="hero">
+      <nav class="site-nav" aria-label="Navegación principal">
+        <a class="brand-mark" href="#inicio">Pulso Ambiental MTY</a>
+        <div class="nav-links">
+          <a href="#mapa">Mapa</a>
+          <a href="#hallazgos">Hallazgos</a>
+          <a href="#clima-historico">Clima</a>
+          <a href="#actualidad">Actualidad</a>
+          <a href="#metodologia">Metodología</a>
+          <a href="#fuentes">Fuentes</a>
+          <a href="#datos-faltantes">Datos faltantes</a>
+          <a href="#participacion">Participa</a>
+        </div>
+      </nav>
+
+      <header class="hero" id="inicio">
         <div class="hero-copy">
           <p class="eyebrow">Pulso Ambiental MTY</p>
-          <h1>Radiografía ambiental del Monterrey metropolitano.</h1>
+          <h1>Consulta ambiental para el Monterrey metropolitano.</h1>
           <p class="hero-text">
-            Pulso Ambiental MTY convierte datos ambientales dispersos en una lectura clara del
-            territorio. El mapa reúne los <strong>9 municipios más poblados de Nuevo León</strong>
-            con límites municipales reales derivados de INEGI y capas sobre verde urbano,
-            contaminación, PM2.5, ruido, temperatura y lluvia. Cada visualización muestra fuente,
-            fecha y alcance para distinguir evidencia comparable de contexto informativo.
+            Consulta y compara información ambiental de los <strong>9 municipios más poblados de
+            Nuevo León</strong>. El sitio reúne datos públicos sobre áreas verdes, calidad del aire,
+            contaminación, ruido, temperatura y lluvia para convertir información técnica en una
+            lectura clara, visual y útil para la ciudadanía.
           </p>
+          <div class="municipality-chips" aria-label="Municipios cubiertos">
+            <span>Monterrey</span>
+            <span>Apodaca</span>
+            <span>Guadalupe</span>
+            <span>Escobedo</span>
+            <span>San Nicolás</span>
+            <span>Juárez</span>
+            <span>Santa Catarina</span>
+            <span>García</span>
+            <span>San Pedro</span>
+          </div>
           <div class="hero-actions">
-            <a class="hero-link" href="#mapa">Explorar mapa</a>
-            <a class="hero-link hero-link-muted" href="#metodologia">Ver metodología</a>
+            <a class="hero-link" href="#mapa">Explorar mi municipio</a>
+            <a class="hero-link hero-link-muted" href="#fuentes">Ver fuentes</a>
           </div>
         </div>
         <aside class="hero-panel">
           <p class="panel-label">Lectura rápida</p>
           <div class="snapshot-grid" id="snapshot-grid"></div>
           <p class="snapshot-note">
-            Alcance principal: 9 municipios priorizados, estaciones del SIMA y fuentes públicas
-            disponibles. Cada capa muestra cobertura, fuente y fecha para leer los datos con
-            contexto.
+            Algunas variables son comparables entre municipios; otras funcionan como contexto por
+            falta de datos abiertos completos. Cada capa muestra fuente, año y alcance para evitar
+            lecturas engañosas.
           </p>
         </aside>
       </header>
 
       <main class="dashboard">
+        <section class="card guide-section" id="como-usar">
+          <div class="section-heading compact">
+            <div>
+              <p class="section-kicker">Cómo usar el sitio</p>
+              <h2>Tres pasos para leer el mapa sin perder contexto</h2>
+            </div>
+          </div>
+          <div class="how-to-grid">
+            <article class="step-card">
+              <span>1</span>
+              <h3>Elige tu municipio</h3>
+              <p>Usa la lista lateral para resaltar el municipio y acercar el mapa a su forma real.</p>
+            </article>
+            <article class="step-card">
+              <span>2</span>
+              <h3>Cambia la capa</h3>
+              <p>Revisa áreas verdes, contaminación, PM2.5 o alertas recientes de calidad del aire.</p>
+            </article>
+            <article class="step-card">
+              <span>3</span>
+              <h3>Lee la fuente</h3>
+              <p>Cada dato incluye año, enlace y una nota para saber si es comparable o parcial.</p>
+            </article>
+          </div>
+        </section>
+
         <section class="card map-section" id="mapa">
           <div class="section-heading">
             <div>
               <p class="section-kicker">Mapa interactivo</p>
-              <h2>Explora el territorio por municipio y por variable ambiental</h2>
+              <h2>Explora tu municipio por variable ambiental</h2>
+              <p class="section-intro">
+                El mapa no muestra todo el problema ambiental, pero ayuda a ubicar patrones,
+                contrastes y vacíos de información. Empieza por un municipio y cambia la capa para
+                comparar.
+              </p>
             </div>
             <div class="metric-switcher">
               <button class="metric-chip is-active" data-layer="greenery">Áreas verdes</button>
@@ -57,7 +112,8 @@
                 <p class="section-kicker">Municipios</p>
                 <h3>Navegación municipal</h3>
                 <p class="panel-copy">
-                  Selecciona un municipio para resaltarlo y acercar el mapa a su geometría real.
+                  Selecciona un municipio para resaltarlo, acercar el mapa y ver el mejor dato
+                  disponible para la capa activa.
                 </p>
               </div>
               <div class="municipality-list" id="municipality-list"></div>
@@ -109,7 +165,74 @@
           </div>
         </section>
 
-        <section class="insights-grid">
+        <section class="card findings-section" id="hallazgos">
+          <div class="section-heading compact">
+            <div>
+              <p class="section-kicker">Hallazgos principales</p>
+              <h2>Qué revela la lectura ambiental</h2>
+            </div>
+          </div>
+          <div class="findings-grid" id="findings-list"></div>
+        </section>
+
+        <section class="card climate-section" id="clima-historico">
+          <div class="section-heading">
+            <div>
+              <p class="section-kicker">Temperatura y lluvia</p>
+              <h2>Clima histórico aproximado</h2>
+              <p class="section-intro">
+                Comparación estimada para los 9 municipios más poblados de Nuevo León entre
+                1991 y 2024. Los valores sirven para observar patrones generales; no sustituyen
+                mediciones oficiales por estación, colonia o límite municipal exacto.
+              </p>
+            </div>
+            <div class="method-pills" aria-label="Etiquetas metodológicas de clima">
+              <span>Aproximación por coordenada</span>
+              <span>Serie 1991-2024</span>
+              <span>Comparación orientativa</span>
+            </div>
+          </div>
+          <div class="climate-summary-grid" id="climate-summary-grid"></div>
+          <div class="climate-layout">
+            <div class="climate-chart-panel">
+              <div class="panel-header inline-header">
+                <div>
+                  <p class="section-kicker">Comparación municipal</p>
+                  <h3>Temperatura media y lluvia anual</h3>
+                </div>
+                <p class="climate-mini-note">Selecciona un municipio para ver el detalle.</p>
+              </div>
+              <div class="climate-chart" id="climate-chart"></div>
+            </div>
+            <aside class="climate-detail" id="climate-detail"></aside>
+          </div>
+          <p class="chart-note">
+            Fuente base: Open-Meteo Historical Weather API, con CONAGUA/SIH y NASA POWER como
+            referencias metodológicas. Municipios cercanos pueden compartir valores similares
+            porque estas fuentes trabajan con celdas espaciales y coordenadas representativas.
+          </p>
+        </section>
+
+        <section class="card news-section" id="actualidad">
+          <div class="section-heading compact">
+            <div>
+              <p class="section-kicker">Actualidad ambiental</p>
+              <h2>Casos recientes para entender el contexto</h2>
+              <p class="section-intro">
+                Esta sección reúne noticias, reportes oficiales e investigaciones recientes. Pulso
+                Ambiental MTY no emite acusaciones propias: resume información publicada por
+                fuentes externas y enlaza la fuente original para consulta.
+              </p>
+            </div>
+          </div>
+          <div class="news-grid" id="news-list"></div>
+          <p class="news-note">
+            La selección prioriza fuentes verificables, temas con impacto metropolitano y casos que
+            ayudan a leer mejor las capas del sitio.
+          </p>
+        </section>
+
+        <section class="insights-grid two-card-grid">
           <article class="card chart-card">
             <div class="section-heading compact">
               <div>
@@ -118,20 +241,6 @@
               </div>
             </div>
             <div class="rank-list" id="rank-list"></div>
-          </article>
-
-          <article class="card chart-card">
-            <div class="section-heading compact">
-              <div>
-                <p class="section-kicker">Temperatura y lluvia</p>
-                <h2>Comportamiento mensual observado por el SIMA</h2>
-              </div>
-            </div>
-            <div class="climate-chart" id="climate-chart"></div>
-            <p class="chart-note">
-              Serie armada con reportes mensuales del SIMA de abril a agosto de 2024, cuando el
-              buscador devuelve tablas comparables con temperatura promedio y precipitación acumulada.
-            </p>
           </article>
 
           <article class="card narrative-card">
@@ -161,7 +270,7 @@
             <div class="section-heading compact">
               <div>
                 <p class="section-kicker">Ruido</p>
-                <h2>Lo que sí existe públicamente</h2>
+                <h2>Un problema visible, pero poco medido</h2>
               </div>
             </div>
             <div class="noise-list" id="noise-list"></div>
@@ -183,29 +292,65 @@
             <div class="story-tags" id="story-tags"></div>
           </article>
 
-          <article class="card sources-card" id="metodologia">
+          <article class="card method-card" id="metodologia">
             <div class="section-heading compact">
               <div>
                 <p class="section-kicker">Metodología</p>
-              <h2>Qué sí compara y qué no</h2>
+                <h2>Cómo leer los datos</h2>
               </div>
             </div>
-            <ul class="source-list" id="source-list"></ul>
+            <p class="method-intro">
+              Este sitio organiza información pública. No todas las fuentes tienen la misma escala
+              ni actualización, por eso cada dato debe leerse con su fuente, año y alcance.
+            </p>
+            <div class="method-list" id="method-list"></div>
           </article>
+        </section>
+
+        <section class="card sources-section" id="fuentes">
+          <div class="section-heading compact">
+            <div>
+              <p class="section-kicker">Fuentes del proyecto</p>
+              <h2>Datos descargables y fuentes consultables</h2>
+              <p class="section-intro">
+                Las fuentes se organizan por utilidad: archivos o servicios descargables, páginas
+                consultables y documentos de contexto para explicar el enfoque del proyecto.
+              </p>
+            </div>
+          </div>
+          <div class="source-list" id="source-list"></div>
+        </section>
+
+        <section class="card missing-section" id="datos-faltantes">
+          <div class="section-heading compact">
+            <div>
+              <p class="section-kicker">Información que falta</p>
+              <h2>Medir mejor para decidir mejor</h2>
+              <p class="section-intro">
+                La falta de datos también es un hallazgo. Para cuidar mejor la ciudad, primero
+                necesitamos información abierta, actualizada y comparable.
+              </p>
+            </div>
+          </div>
+          <div class="missing-grid" id="missing-data-list"></div>
+          <p class="missing-note">
+            La ausencia de información no significa que el problema no exista. Significa que todavía
+            no lo estamos midiendo con suficiente claridad.
+          </p>
         </section>
 
         <section class="card participation-section" id="participacion">
           <div class="section-heading compact">
             <div>
               <p class="section-kicker">Participación</p>
-              <h2>Comentarios para mejorar la lectura ambiental</h2>
+              <h2>Ayuda a mejorar Pulso Ambiental MTY</h2>
             </div>
           </div>
           <div class="participation-grid">
             <p>
-              Este proyecto está pensado como una base de consulta ciudadana y académica. Si una
-              persona detecta una fuente más reciente, un dato municipal que deba corregirse o una
-              explicación poco clara, puede enviar retroalimentación para mejorar futuras versiones.
+              Este proyecto funciona como base de consulta ciudadana y académica. Puedes enviar
+              fuentes nuevas, correcciones de datos, comentarios sobre claridad o sugerencias para
+              futuras capas ambientales.
             </p>
             <div class="contact-card">
               <span>Correo del proyecto</span>
@@ -213,6 +358,12 @@
             </div>
           </div>
         </section>
+
+        <footer class="site-footer">
+          Pulso Ambiental MTY busca acercar la información ambiental a las personas que viven la
+          ciudad todos los días. Entender el territorio es un primer paso para cuidarlo, exigir
+          mejores decisiones y construir una metrópoli más saludable.
+        </footer>
       </main>
     </div>
 

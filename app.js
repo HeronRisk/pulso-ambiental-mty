@@ -326,12 +326,124 @@ const alerts = [
   }
 ];
 
-const climateSeries = [
-  { month: "Abr 2024", avgTemp: 24.82, maxTemp: 37.35, rain: 21.476, source: "https://aire.nl.gob.mx/docs/reportes/mensuales/2024/04_Reporte_Abril_2024.pdf" },
-  { month: "May 2024", avgTemp: 30.21, maxTemp: 45.1, rain: 183.6, source: "https://aire.nl.gob.mx/docs/reportes/mensuales/2024/05_Reporte_Mayo_2024.pdf" },
-  { month: "Jun 2024", avgTemp: 28.49, maxTemp: 43.07, rain: 680.5, source: "https://aire.nl.gob.mx/docs/reportes/mensuales/2024/06_Reporte_Junio_2024.pdf" },
-  { month: "Jul 2024", avgTemp: 27.48, maxTemp: 43.94, rain: 26.3, source: "https://aire.nl.gob.mx/docs/reportes/mensuales/2024/07_Reporte_Julio_2024.pdf" },
-  { month: "Ago 2024", avgTemp: 29.04, maxTemp: 39.1, rain: 153.81, source: "https://aire.nl.gob.mx/docs/reportes/mensuales/2024/08_Reporte_Agosto_2024.pdf" }
+const climateHistorical = [
+  {
+    id: "monterrey",
+    municipality: "Monterrey",
+    coords: "25.6866, -100.3161",
+    avgTemp: 21.6,
+    avgRain: 585,
+    tempTrend: 0.22,
+    rainTrend: 21,
+    hottestYear: "2023",
+    hottestTemp: 22.7,
+    rainiestYear: "2013",
+    rainiestRain: 907
+  },
+  {
+    id: "apodaca",
+    municipality: "Apodaca",
+    coords: "25.7810, -100.1880",
+    avgTemp: 22.0,
+    avgRain: 575,
+    tempTrend: 0.47,
+    rainTrend: 10,
+    hottestYear: "2023",
+    hottestTemp: 23.6,
+    rainiestYear: "2013",
+    rainiestRain: 907
+  },
+  {
+    id: "guadalupe",
+    municipality: "Guadalupe",
+    coords: "25.6760, -100.2560",
+    avgTemp: 21.8,
+    avgRain: 585,
+    tempTrend: 0.13,
+    rainTrend: 21,
+    hottestYear: "2011",
+    hottestTemp: 22.9,
+    rainiestYear: "2013",
+    rainiestRain: 907
+  },
+  {
+    id: "escobedo",
+    municipality: "Escobedo",
+    coords: "25.7950, -100.3140",
+    avgTemp: 21.6,
+    avgRain: 573,
+    tempTrend: 0.45,
+    rainTrend: 5,
+    hottestYear: "2023",
+    hottestTemp: 23.4,
+    rainiestYear: "2013",
+    rainiestRain: 907
+  },
+  {
+    id: "san-nicolas",
+    municipality: "San Nicolás",
+    coords: "25.7490, -100.2860",
+    avgTemp: 21.9,
+    avgRain: 573,
+    tempTrend: 0.31,
+    rainTrend: 5,
+    hottestYear: "2023",
+    hottestTemp: 23.4,
+    rainiestYear: "2013",
+    rainiestRain: 907
+  },
+  {
+    id: "juarez",
+    municipality: "Juárez",
+    coords: "25.6480, -100.0960",
+    avgTemp: 21.9,
+    avgRain: 572,
+    tempTrend: 0.58,
+    rainTrend: 54,
+    hottestYear: "2023",
+    hottestTemp: 23.8,
+    rainiestYear: "2024",
+    rainiestRain: 907
+  },
+  {
+    id: "santa-catarina",
+    municipality: "Santa Catarina",
+    coords: "25.6740, -100.4590",
+    avgTemp: 21.1,
+    avgRain: 568,
+    tempTrend: 0.24,
+    rainTrend: 33,
+    hottestYear: "2023",
+    hottestTemp: 22.4,
+    rainiestYear: "2010",
+    rainiestRain: 865
+  },
+  {
+    id: "garcia",
+    municipality: "García",
+    coords: "25.8120, -100.5850",
+    avgTemp: 21.4,
+    avgRain: 538,
+    tempTrend: 0.11,
+    rainTrend: -6,
+    hottestYear: "2011",
+    hottestTemp: 22.5,
+    rainiestYear: "2010",
+    rainiestRain: 865
+  },
+  {
+    id: "san-pedro",
+    municipality: "San Pedro",
+    coords: "25.6570, -100.4020",
+    avgTemp: 21.1,
+    avgRain: 568,
+    tempTrend: 0.2,
+    rainTrend: 33,
+    hottestYear: "2023",
+    hottestTemp: 22.4,
+    rainiestYear: "2010",
+    rainiestRain: 865
+  }
 ];
 
 const noiseFacts = [
@@ -357,46 +469,626 @@ const noiseFacts = [
   }
 ];
 
-const sourceEntries = [
+const findingEntries = [
   {
-    title: "INEGI, geometría municipal 2025",
-    url: "https://gaia.inegi.org.mx/wscatgeo/v2/geo/mgem/19",
-    body: "Servicio oficial del Marco Geoestadístico usado para derivar los límites reales de los 9 municipios del mapa."
+    title: "La metrópoli no se mide igual en todos lados",
+    body: "Algunas variables tienen datos comparables, pero otras solo existen como reportes parciales o contexto público.",
+    tag: "Dato clave"
   },
   {
-    title: "INEGI, delimitación metropolitana",
-    url: "https://www.inegi.org.mx/contenidos/productos/prod_serv/contenidos/espanol/bvinegi/productos/nueva_estruc/702825006792.pdf",
-    body: "Base de contexto para explicar el alcance metropolitano formal de Monterrey, aunque el mapa visible quedó acotado a los 9 municipios más poblados."
+    title: "Las áreas verdes muestran una desigualdad clara",
+    body: "San Pedro aparece muy por encima del resto en el inventario disponible, mientras varios municipios quedan lejos de la meta de 9 m²/hab.",
+    tag: "Áreas verdes"
   },
   {
-    title: "SIMA / Agencia de Calidad del Aire de Nuevo León",
-    url: "https://aire.nl.gob.mx/docs/reportes/estadisticas/Estadisticas_2018.pdf",
-    body: "Promedios anuales 2018 de PM2.5, PM10 y O3 por estación. Esta es la capa comparable para contaminación y aire."
+    title: "La calidad del aire depende de estaciones",
+    body: "PM2.5 y PM10 se leen desde estaciones del SIMA, no como mediciones exactas de cada límite municipal.",
+    tag: "Aire"
   },
   {
-    title: "Mapa Índice Aire y Salud",
-    url: "https://aire.nl.gob.mx/icars2020/map_calidad_icars.php",
-    body: "Usado para los episodios recientes de 2025-2026 indexados por el buscador. En el recorte actual de 9 municipios, el caso más fuerte es el ozono de San Pedro del 25 de febrero de 2026."
+    title: "El ruido sigue siendo un vacío metropolitano",
+    body: "Hay reglamentos y reportes ciudadanos, pero no una red pública continua y comparable para los 9 municipios.",
+    tag: "Ruido"
   },
   {
-    title: "Estudio de áreas verdes urbanas de la ZMM",
-    url: "https://era.ujat.mx/index.php/rera/article/view/2676",
-    body: "Serie satelital 2000-2019 para la ZMM completa: 13.21 m²/hab en 2000 y 7.75 m²/hab en 2019."
+    title: "La falta de datos también es evidencia",
+    body: "Para tomar mejores decisiones hacen falta datos abiertos, actualizados y homogéneos sobre clima, arbolado, ruido y salud ambiental.",
+    tag: "Datos abiertos"
+  }
+];
+
+const newsEntries = [
+  {
+    title: "Investigación sobre emisores industriales",
+    topic: "Contaminación industrial",
+    sourceName: "Quinto Elemento Lab / The Guardian",
+    sourceType: "Investigación periodística",
+    date: "2 dic 2025",
+    zone: "Área Metropolitana de Monterrey",
+    summary:
+      "Una investigación basada en reportes oficiales identificó industrias con emisiones relevantes de metales pesados y dióxido de carbono.",
+    caution: "Usar con atribución clara; el sitio no emite acusaciones propias.",
+    url: "https://quintoelab.org/project/identifican-industrias-emisiones-contaminantes-monterrey"
   },
   {
-    title: "Inventario comparable de áreas verdes por municipio",
-    url: "https://www.hcnl.gob.mx/trabajo_legislativo/pdf/DDE%20281%20SO%20COMPLETO%20Y%20REVISADO.pdf",
-    body: "Documento legislativo que cita el inventario de SEMARNAT con m² por habitante comparables para siete municipios del núcleo urbano."
+    title: "RETC registra empresas emisoras en Nuevo León",
+    topic: "Emisiones industriales",
+    sourceName: "Milenio / RETC Semarnat",
+    sourceType: "Nota con base oficial",
+    date: "16 feb 2026",
+    zone: "Nuevo León",
+    summary:
+      "La nota reporta 189 empresas con emisiones contaminantes en Nuevo León con información del Registro de Emisiones y Transferencia de Contaminantes.",
+    caution: "Cuando sea posible, contrastar con la base RETC original.",
+    url: "https://www.milenio.com/comunidad/enlista-semarnat-189-empresas-emiten-contaminantes-nuevo-leon"
   },
   {
-    title: "Reportes mensuales de meteorología 2024",
-    url: "https://aire.nl.gob.mx/rep_mensual.html",
-    body: "Serie usada para temperatura promedio y precipitación acumulada mensual de abril a agosto de 2024."
+    title: "Refinería de Cadereyta bajo seguimiento",
+    topic: "Calidad del aire",
+    sourceName: "Milenio",
+    sourceType: "Cobertura periodística",
+    date: "7 abr 2026",
+    zone: "Cadereyta / AMM",
+    summary:
+      "La cobertura mantiene la discusión sobre emisiones de la refinería y su impacto potencial en la calidad del aire metropolitana.",
+    caution: "Cadereyta no está dentro de los 9 municipios del mapa, pero puede influir en la zona metropolitana.",
+    url: "https://www.milenio.com/comunidad/refineria-cadereyta-contamina-nl-pese-a-inversion-millonaria"
   },
   {
-    title: "Agenda 2030 de Naciones Unidas",
-    url: "https://sdgs.un.org/es/2030agenda",
-    body: "Marco usado para alinear el proyecto con los ODS 3, 11, 13 y 15: salud, ciudades sostenibles, acción climática y ecosistemas terrestres."
+    title: "Derrame químico en La Talaverna",
+    topic: "Agua e industria",
+    sourceName: "MVS Noticias",
+    sourceType: "Cobertura periodística",
+    date: "23 abr 2025",
+    zone: "Monterrey, San Nicolás, Guadalupe, Apodaca y Pesquería",
+    summary:
+      "Ternium reconoció un incidente en su planta Churubusco que afectó el arroyo La Talaverna y activó protocolos de limpieza.",
+    caution: "Distinguir contaminación de agua de contaminación del aire.",
+    url: "https://mvsnoticias.com/nuevo-leon/2025/4/23/ternium-confirma-derrame-quimico-en-arroyo-la-talaverna-689187.html"
+  },
+  {
+    title: "Aire contaminado durante 2025",
+    topic: "PM10",
+    sourceName: "Excélsior / análisis ciudadano",
+    sourceType: "Análisis con datos oficiales",
+    date: "19 ene 2026",
+    zone: "Zona Metropolitana de Monterrey",
+    summary:
+      "Un análisis ciudadano con datos SIMA/SINAICA reportó días fuera de norma por PM10 durante más de la mitad de 2025.",
+    caution: "Presentarlo como análisis ciudadano que procesa datos oficiales.",
+    url: "https://www.excelsior.com.mx/nacional/monterrey-registro-aire-contaminado-mas-mitad-2025"
+  },
+  {
+    title: "Exhorto para reactivar alertas ambientales",
+    topic: "Gobernanza ambiental",
+    sourceName: "Congreso de Nuevo León",
+    sourceType: "Comunicado oficial",
+    date: "10 mar 2026",
+    zone: "Nuevo León",
+    summary:
+      "El Congreso exhortó a reactivar alertas ambientales para informar mejor a la ciudadanía ante episodios de mala calidad del aire.",
+    caution: "Es un exhorto legislativo, no una política ya implementada.",
+    url: "https://www.hcnl.gob.mx/sala_de_prensa/2026/03/exhortan_a_medio_ambiente_reactivar_alertas_ambientales.php"
+  },
+  {
+    title: "Recomendaciones por onda de calor",
+    topic: "Calor extremo",
+    sourceName: "Gobierno de Nuevo León",
+    sourceType: "Comunicado oficial",
+    date: "12 may 2025",
+    zone: "Nuevo León",
+    summary:
+      "Protección Civil emitió recomendaciones por altas temperaturas y riesgo de afectaciones a la salud.",
+    caution: "Sirve como contexto de riesgo; no sustituye una serie histórica de temperatura.",
+    url: "https://www.nl.gob.mx/es/boletines/emite-pcnl-recomendaciones-por-primer-onda-de-calor"
+  },
+  {
+    title: "Programa estatal de arbolado urbano",
+    topic: "Áreas verdes",
+    sourceName: "Gobierno de Nuevo León",
+    sourceType: "Comunicado oficial",
+    date: "18 jul 2025",
+    zone: "Área Metropolitana de Monterrey",
+    summary:
+      "El programa Ayudamos con Más Árboles busca entregar árboles nativos y naturalizados para reducir déficit de arbolado e islas de calor.",
+    caution: "La entrega de árboles debe complementarse con seguimiento de supervivencia y ubicación.",
+    url: "https://www.nl.gob.mx/es/boletines/nuevo-leon-lanza-el-programa-ayudamos-con-mas-arboles"
+  }
+];
+
+const methodologyEntries = [
+  {
+    title: "Dato comparable",
+    body: "Proviene de una misma fuente y permite comparar municipios o estaciones con una metodología similar."
+  },
+  {
+    title: "Dato por estación",
+    body: "Representa un punto de monitoreo del SIMA. Ayuda a entender el territorio, pero no equivale a todo el municipio."
+  },
+  {
+    title: "Aproximación por coordenada",
+    body: "Se usa para clima histórico cuando no hay una medición municipal homogénea. Sirve para patrones generales, no para microclimas por colonia."
+  },
+  {
+    title: "Reanalysis o fuente satelital",
+    body: "Integra modelos, estaciones y observaciones para estimar temperatura, lluvia o cobertura. Debe leerse como apoyo, no como verdad local exacta."
+  },
+  {
+    title: "Dato de contexto",
+    body: "Sirve para explicar una tendencia o problema, aunque no permite una comparación directa entre los 9 municipios."
+  },
+  {
+    title: "Dato parcial",
+    body: "Existe solo para algunos municipios, años o fuentes. Se muestra con limitación visible para evitar conclusiones falsas."
+  },
+  {
+    title: "Sin medición propia",
+    body: "El proyecto no instala sensores ni sustituye reportes oficiales; reúne, ordena y visualiza información pública existente."
+  },
+  {
+    title: "Actualidad curada",
+    body: "Las noticias se incluyen para contexto ciudadano. Cada tarjeta atribuye la fuente y evita presentar señalamientos como conclusiones propias."
+  }
+];
+
+const sourceGroups = [
+  {
+    title: "Fuentes descargables",
+    description: "Documentos, bases o servicios que pueden guardarse, revisar o procesar fuera del sitio.",
+    entries: [
+      {
+        title: "Marco Geoestadístico NL",
+        institution: "INEGI",
+        variable: "Límites municipales",
+        year: "2025",
+        format: "API / JSON",
+        type: "Descargable",
+        url: "https://gaia.inegi.org.mx/wscatgeo/v2/geo/mgem/19",
+        limitation: "Requiere procesar geometrías para usarlas en el mapa.",
+        body: "Límites oficiales usados para construir el mapa de los 9 municipios."
+      },
+      {
+        title: "Censo 2020",
+        institution: "INEGI",
+        variable: "Población municipal",
+        year: "2020",
+        format: "Excel / CSV / DBF / PDF",
+        type: "Descargable",
+        url: "https://www.inegi.org.mx/programas/ccpv/2020/",
+        limitation: "No refleja cambios posteriores al censo.",
+        body: "Fuente para ordenar municipios por población y justificar el alcance territorial."
+      },
+      {
+        title: "Estadísticas SIMA 2018",
+        institution: "Gobierno de Nuevo León / SIMA",
+        variable: "PM2.5, PM10 y O3",
+        year: "2018",
+        format: "PDF",
+        type: "Descargable",
+        url: "https://aire.nl.gob.mx/docs/reportes/estadisticas/Estadisticas_2018.pdf",
+        limitation: "Es un corte anual de 2018, no dato en tiempo real.",
+        body: "Base comparable para las capas de contaminación y partículas finas."
+      },
+      {
+        title: "Reportes mensuales Aire NL",
+        institution: "Gobierno de Nuevo León / SIMA",
+        variable: "Calidad del aire, temperatura y lluvia",
+        year: "2024-2026",
+        format: "PDF",
+        type: "Descargable",
+        url: "https://aire.nl.gob.mx/rep_mensual.html",
+        limitation: "La información no siempre está organizada por municipio.",
+        body: "Reportes usados para contexto climático y seguimiento ambiental mensual."
+      },
+      {
+        title: "PIGECA 2023-2033",
+        institution: "Gobierno de Nuevo León",
+        variable: "Política de calidad del aire",
+        year: "2023-2033",
+        format: "PDF",
+        type: "Descargable",
+        url: "https://aire.nl.gob.mx/docs/reportes/PIGECA_2023_2033.pdf",
+        limitation: "Documento amplio; no es base de datos directa.",
+        body: "Programa oficial para entender acciones y retos de calidad del aire."
+      },
+      {
+        title: "Áreas verdes ZMM",
+        institution: "UJAT / revista académica",
+        variable: "Áreas verdes urbanas",
+        year: "2000-2019",
+        format: "PDF académico",
+        type: "Descargable",
+        url: "https://www.scielo.org.mx/pdf/era/v8n1/2007-901X-era-8-01-e2676.pdf",
+        limitation: "Analiza la ZMM; no sustituye inventarios municipales actuales.",
+        body: "Estudio que muestra pérdida de áreas verdes urbanas en la zona metropolitana."
+      },
+      {
+        title: "Inventario áreas verdes",
+        institution: "Congreso NL / SEMARNAT citado",
+        variable: "Áreas verdes por habitante",
+        year: "2011",
+        format: "PDF oficial",
+        type: "Descargable",
+        url: "https://www.hcnl.gob.mx/trabajo_legislativo/pdf/DDE%20281%20SO%20COMPLETO%20Y%20REVISADO.pdf",
+        limitation: "Solo incluye cifras comparables para algunos municipios.",
+        body: "Fuente usada para comparar metros cuadrados de área verde por habitante."
+      },
+      {
+        title: "Estaciones SIH",
+        institution: "CONAGUA / datos.gob.mx",
+        variable: "Temperatura y lluvia",
+        year: "Actualizable",
+        format: "CSV",
+        type: "Descargable",
+        url: "https://www.datos.gob.mx/dataset/estaciones_sistema_informacion_hidrologica",
+        limitation: "Requiere filtrar estaciones, descargar CSV y procesar series históricas.",
+        body: "Ficha estable del Sistema de Información Hidrológica para estaciones climatológicas."
+      },
+      {
+        title: "Open-Meteo histórico",
+        institution: "Open-Meteo",
+        variable: "Temperatura y precipitación",
+        year: "1940-presente",
+        format: "API / JSON / CSV",
+        type: "Descargable",
+        url: "https://open-meteo.com/en/docs/historical-weather-api",
+        limitation: "Es una aproximación por coordenada; no sustituye una estación local.",
+        body: "Fuente base usada para construir el clima histórico aproximado 1991-2024."
+      },
+      {
+        title: "NASA POWER",
+        institution: "NASA",
+        variable: "Clima y energía solar",
+        year: "1981-presente",
+        format: "API / CSV / JSON",
+        type: "Descargable",
+        url: "https://power.larc.nasa.gov/docs/tutorials/service-data-request/api/",
+        limitation: "Resolución global; útil para contexto, no para microclima urbano.",
+        body: "Referencia alternativa para validar patrones generales de temperatura y lluvia."
+      },
+      {
+        title: "CHIRPS",
+        institution: "UCSB / CHC",
+        variable: "Precipitación histórica",
+        year: "1981-presente",
+        format: "Raster / GeoTIFF / NetCDF",
+        type: "Descargable",
+        url: "https://www.chc.ucsb.edu/data/chirps",
+        limitation: "Estimación satelital; no reemplaza pluviómetros locales.",
+        body: "Fuente útil para lluvia histórica cuando no hay series municipales homogéneas."
+      },
+      {
+        title: "NASA GPM IMERG",
+        institution: "NASA / JAXA",
+        variable: "Precipitación satelital",
+        year: "2000-presente",
+        format: "API / HDF5 / NetCDF",
+        type: "Descargable",
+        url: "https://gpm.nasa.gov/data/imerg",
+        limitation: "Requiere procesamiento técnico y validación local.",
+        body: "Apoya análisis de lluvia intensa y eventos hidrometeorológicos."
+      },
+      {
+        title: "RETC Nuevo León",
+        institution: "Aire NL / Gobierno de Nuevo León",
+        variable: "Emisiones industriales",
+        year: "Actualizable",
+        format: "Base consultable",
+        type: "Descargable",
+        url: "https://aire.nl.gob.mx/retc_info.html",
+        limitation: "Depende de reportes de fuentes obligadas y no siempre es fácil de mapear.",
+        body: "Fuente para contextualizar emisiones y transferencias de contaminantes."
+      },
+      {
+        title: "Cobertura de suelo México",
+        institution: "CONABIO",
+        variable: "Cobertura vegetal y suelo",
+        year: "2020",
+        format: "Mapa / datos geoespaciales",
+        type: "Descargable",
+        url: "https://www.gob.mx/conabio/prensa/nuevo-mapa-de-la-cobertura-de-suelo-de-mexico?idiom=es",
+        limitation: "Escala nacional; requiere recorte y clasificación urbana.",
+        body: "Puede apoyar futuras capas de áreas verdes y cobertura vegetal."
+      },
+      {
+        title: "ESA WorldCover",
+        institution: "Agencia Espacial Europea",
+        variable: "Cobertura terrestre",
+        year: "2021",
+        format: "GeoTIFF / mapa global",
+        type: "Descargable",
+        url: "https://worldcover2021.esa.int/download",
+        limitation: "Clasificación global; necesita validación en campo o con fuentes locales.",
+        body: "Fuente satelital útil para aproximar superficies verdes y urbanizadas."
+      }
+    ]
+  },
+  {
+    title: "Fuentes consultables",
+    description: "Visores o notas institucionales útiles para contexto, aunque sin descarga directa completa.",
+    entries: [
+      {
+        title: "Mapa Aire y Salud",
+        institution: "Gobierno de Nuevo León / SIMA",
+        variable: "Calidad del aire reciente",
+        year: "2026",
+        format: "Visor web",
+        type: "Consultable",
+        url: "https://aire.nl.gob.mx/icars2020/map_calidad_icars.php",
+        limitation: "Cambia constantemente y no ofrece descarga histórica directa.",
+        body: "Visor público para revisar condiciones recientes de calidad del aire."
+      },
+      {
+        title: "Ruido Guadalupe",
+        institution: "Municipio de Guadalupe",
+        variable: "Ruido urbano",
+        year: "2024",
+        format: "Nota institucional",
+        type: "Consultable",
+        url: "https://guadalupe.gob.mx/noticia/autoridades-de-guadalupe-piden-reducir-ruido-en-celebraciones-decembrinas",
+        limitation: "No es medición continua ni base de datos.",
+        body: "Ejemplo municipal sobre límites y reportes relacionados con ruido."
+      },
+      {
+        title: "Ruido Apodaca",
+        institution: "Municipio de Apodaca",
+        variable: "Ruido urbano",
+        year: "2020",
+        format: "Nota institucional",
+        type: "Consultable",
+        url: "https://web.apodaca.gob.mx/refuerza-apodaca-operativos-para-respetar-niveles-de-ruido/",
+        limitation: "Muestra operativos, no datos ambientales continuos.",
+        body: "Ejemplo de atención municipal a reportes de ruido vecinal."
+      },
+      {
+        title: "Buenos Vecinos San Nicolás",
+        institution: "Municipio / medio local",
+        variable: "Ruido urbano",
+        year: "2024",
+        format: "Nota web",
+        type: "Consultable",
+        url: "https://circuloinformativo.com/2024/12/10/buscaran-reducir-llamadas-de-alto-volumen-en-san-nicolas-con-el-programa-buenos-vecinos/",
+        limitation: "No proviene de una base pública descargable.",
+        body: "Referencia sobre reportes ciudadanos de alto volumen en San Nicolás."
+      },
+      {
+        title: "Emisores industriales",
+        institution: "Quinto Elemento Lab / The Guardian",
+        variable: "Contaminación industrial",
+        year: "2025",
+        format: "Investigación periodística",
+        type: "Consultable",
+        url: "https://quintoelab.org/project/identifican-industrias-emisiones-contaminantes-monterrey",
+        limitation: "Debe citarse como investigación externa basada en datos oficiales.",
+        body: "Contexto reciente para explicar por qué importan las emisiones industriales."
+      },
+      {
+        title: "Alertas ambientales",
+        institution: "Congreso de Nuevo León",
+        variable: "Gobernanza ambiental",
+        year: "2026",
+        format: "Comunicado oficial",
+        type: "Consultable",
+        url: "https://www.hcnl.gob.mx/sala_de_prensa/2026/03/exhortan_a_medio_ambiente_reactivar_alertas_ambientales.php",
+        limitation: "Es un exhorto, no una base de datos ambiental.",
+        body: "Muestra la necesidad de información clara y oportuna para la ciudadanía."
+      },
+      {
+        title: "Onda de calor NL",
+        institution: "Protección Civil Nuevo León",
+        variable: "Calor extremo",
+        year: "2025",
+        format: "Comunicado oficial",
+        type: "Consultable",
+        url: "https://www.nl.gob.mx/es/boletines/emite-pcnl-recomendaciones-por-primer-onda-de-calor",
+        limitation: "Evento puntual; no representa una tendencia histórica por sí solo.",
+        body: "Conecta temperatura, prevención y salud pública."
+      },
+      {
+        title: "Ayudamos con Más Árboles",
+        institution: "Gobierno de Nuevo León",
+        variable: "Arbolado urbano",
+        year: "2025",
+        format: "Comunicado oficial",
+        type: "Consultable",
+        url: "https://www.nl.gob.mx/es/boletines/nuevo-leon-lanza-el-programa-ayudamos-con-mas-arboles",
+        limitation: "No incluye inventario georreferenciado de supervivencia del arbolado.",
+        body: "Ejemplo de acción pública relacionada con islas de calor y déficit de árboles."
+      }
+    ]
+  },
+  {
+    title: "Fuentes metodológicas y de contexto",
+    description: "Documentos que justifican el enfoque territorial, ciudadano y ODS del proyecto.",
+    entries: [
+      {
+        title: "Agenda 2030",
+        institution: "Naciones Unidas",
+        variable: "ODS",
+        year: "2015",
+        format: "Web / PDF",
+        type: "Contexto",
+        url: "https://sdgs.un.org/es/2030agenda",
+        limitation: "Marco global, no datos locales.",
+        body: "Base para alinear el proyecto con ODS 3, 11, 13 y 15."
+      },
+      {
+        title: "Nueva Agenda Urbana",
+        institution: "ONU-Habitat",
+        variable: "Sostenibilidad urbana",
+        year: "2016 / 2021",
+        format: "Web / PDF",
+        type: "Contexto",
+        url: "https://onu-habitat.org/index.php/nueva-agenda-urbana",
+        limitation: "No contiene información específica de Monterrey.",
+        body: "Marco para conectar el proyecto con planeación urbana y derecho a la ciudad."
+      },
+      {
+        title: "Delimitación metropolitana",
+        institution: "INEGI / SEDATU / CONAPO",
+        variable: "Zona metropolitana",
+        year: "2015",
+        format: "PDF",
+        type: "Contexto",
+        url: "https://www.inegi.org.mx/contenidos/productos/prod_serv/contenidos/espanol/bvinegi/productos/nueva_estruc/702825006792.pdf",
+        limitation: "No sustituye datos ambientales recientes.",
+        body: "Documento para explicar por qué Monterrey debe leerse como territorio metropolitano."
+      },
+      {
+        title: "ODS México",
+        institution: "Gobierno de México / Agenda 2030",
+        variable: "Indicadores ODS",
+        year: "Actualizable",
+        format: "Web",
+        type: "Contexto",
+        url: "https://agenda2030.mx/",
+        limitation: "Indicadores amplios; no todos llegan a escala municipal.",
+        body: "Ayuda a relacionar el proyecto con metas nacionales de desarrollo sostenible."
+      },
+      {
+        title: "State of Global Air",
+        institution: "Health Effects Institute",
+        variable: "Salud ambiental y aire",
+        year: "Actualizable",
+        format: "Web / datos",
+        type: "Contexto",
+        url: "https://www.stateofglobalair.org/data",
+        limitation: "Escala nacional o regional; no diagnostica municipios de Nuevo León.",
+        body: "Referencia para explicar efectos de contaminación atmosférica en salud."
+      },
+      {
+        title: "Datos abiertos salud",
+        institution: "Secretaría de Salud",
+        variable: "Salud pública",
+        year: "Actualizable",
+        format: "CSV / bases abiertas",
+        type: "Contexto",
+        url: "https://www.gob.mx/salud/documentos/datos-abiertos-152127",
+        limitation: "No relaciona por sí solo contaminación con enfermedad; requiere análisis epidemiológico.",
+        body: "Fuente potencial para futuras lecturas de salud ambiental."
+      },
+      {
+        title: "Defunciones registradas",
+        institution: "INEGI",
+        variable: "Salud pública",
+        year: "Actualizable",
+        format: "Microdatos / tabulados",
+        type: "Contexto",
+        url: "https://www.inegi.org.mx/rnm/index.php/catalog/1140",
+        limitation: "Requiere anonimización, metodología y cuidado para no inferir causalidad directa.",
+        body: "Podría apoyar análisis futuros sobre impactos de contaminación y calor."
+      },
+      {
+        title: "Data for Cool Cities MTY",
+        institution: "WRI México",
+        variable: "Calor urbano",
+        year: "2024",
+        format: "Nota institucional",
+        type: "Contexto",
+        url: "https://es.wri.org/noticias/wri-mexico-presenta-los-primeros-resultados-del-proyecto-data-cool-cities-en-monterrey",
+        limitation: "Presenta resultados y enfoque, no una base municipal completa.",
+        body: "Contexto local sobre calor urbano y soluciones de enfriamiento."
+      },
+      {
+        title: "Islas de calor Monterrey",
+        institution: "ISPRS / UANL",
+        variable: "Islas de calor urbanas",
+        year: "2024",
+        format: "Artículo académico",
+        type: "Contexto",
+        url: "https://isprs-annals.copernicus.org/articles/X-3-2024/439/2024/index.html",
+        limitation: "Estudio académico con metodología técnica; no sustituye monitoreo operativo.",
+        body: "Apoya la explicación de calor urbano, vegetación e infraestructura azul-verde."
+      },
+      {
+        title: "Landsat Surface Temperature",
+        institution: "USGS / NASA",
+        variable: "Temperatura superficial",
+        year: "Actualizable",
+        format: "Datos satelitales",
+        type: "Contexto",
+        url: "https://www.usgs.gov/landsat-missions/landsat-collection-2-surface-temperature",
+        limitation: "Mide temperatura superficial, no temperatura del aire que siente una persona.",
+        body: "Fuente futura para mapear islas de calor con mayor resolución espacial."
+      },
+      {
+        title: "WUDAPT",
+        institution: "World Urban Database and Access Portal Tools",
+        variable: "Zonas climáticas locales",
+        year: "Actualizable",
+        format: "Mapas / metodología",
+        type: "Contexto",
+        url: "https://www.wudapt.org/data-and-tools/",
+        limitation: "Requiere clasificación y validación local.",
+        body: "Metodología para comparar zonas urbanas según forma, materiales y cobertura."
+      }
+    ]
+  }
+];
+
+const missingDataEntries = [
+  {
+    title: "Ruido ambiental continuo",
+    why: "Afecta descanso, salud mental, convivencia y calidad de vida.",
+    owner: "Municipios, Secretaría de Medio Ambiente estatal o una red metropolitana.",
+    format: "API, CSV horario y mapa por colonia o vialidad.",
+    impact: "Solo se muestran reglamentos y reportes; no existe una comparación real entre municipios."
+  },
+  {
+    title: "Áreas verdes actualizadas y georreferenciadas",
+    why: "Permiten saber qué zonas tienen parques, sombra, corredores y espacios públicos suficientes.",
+    owner: "Municipios, IMPLAN, INEGI, Secretaría de Medio Ambiente o universidades.",
+    format: "GeoJSON, shapefile, CSV y visor público.",
+    impact: "Se usan datos históricos o parciales, no una lectura actual completa."
+  },
+  {
+    title: "Arbolado urbano",
+    why: "Ayuda a conocer cobertura de sombra, especies y necesidades de reforestación.",
+    owner: "Municipios, universidades, parques urbanos y organizaciones ambientales.",
+    format: "Inventario abierto con coordenadas en CSV o GeoJSON.",
+    impact: "No se puede decir con precisión dónde hay más árboles o dónde urge plantar."
+  },
+  {
+    title: "Temperatura urbana por colonia",
+    why: "Sirve para identificar islas de calor, zonas con poca sombra y población vulnerable.",
+    owner: "CONAGUA, SIMA, municipios, Protección Civil o red de sensores urbanos.",
+    format: "CSV, API, mapas raster, GeoTIFF y estaciones abiertas.",
+    impact: "El clima histórico se presenta como aproximación por coordenada, no como microclima urbano."
+  },
+  {
+    title: "Precipitación municipal homogénea",
+    why: "Ayuda a entender riesgos de inundación, sequía, escurrimientos y diferencias climáticas locales.",
+    owner: "CONAGUA, Protección Civil, municipios y organismos de agua.",
+    format: "CSV, API y mapas por estación, cuenca y municipio.",
+    impact: "La lluvia se estima con fuentes abiertas y no captura variaciones de tormentas muy localizadas."
+  },
+  {
+    title: "Calidad del aire histórica por API",
+    why: "Permitiría comparar PM2.5, PM10, ozono y episodios recientes con más transparencia.",
+    owner: "SIMA / Agencia de Calidad del Aire de Nuevo León.",
+    format: "API histórica y CSV horario por estación.",
+    impact: "El sitio combina datos anuales comparables con alertas recientes, pero no compara todo en tiempo real."
+  },
+  {
+    title: "Emisiones industriales georreferenciadas",
+    why: "Ayudarían a relacionar contaminación con posibles fuentes emisoras.",
+    owner: "SEMARNAT, gobierno estatal, municipios y empresas obligadas a reportar.",
+    format: "CSV, GeoJSON y visor público.",
+    impact: "No se puede explicar con precisión qué fuentes contribuyen más a la contaminación local."
+  },
+  {
+    title: "Indicadores de salud ambiental",
+    why: "Permiten estudiar relación entre contaminación, calor, ruido y efectos en salud.",
+    owner: "Secretaría de Salud, hospitales, INEGI y universidades.",
+    format: "Datos anonimizados en CSV y tabulados por municipio.",
+    impact: "El proyecto explica riesgos generales, pero no mide impactos directos ni causalidad local."
+  },
+  {
+    title: "Seguimiento público de programas ambientales",
+    why: "Ayudaría a saber si las acciones de reforestación, inspección o reducción de emisiones realmente avanzan.",
+    owner: "Gobierno estatal, municipios, órganos de transparencia y ciudadanía.",
+    format: "Tablero abierto con metas, ubicación, presupuesto, avances y evidencia.",
+    impact: "Las noticias muestran acciones, pero no siempre permiten evaluar resultados de largo plazo."
   }
 ];
 
@@ -405,44 +1097,44 @@ const layers = {
     type: "municipality",
     title: "Áreas verdes urbanas comparables",
     unit: "m²/hab",
-    badge: "Capa municipal con cifras comparables para siete municipios del núcleo urbano; los demás quedan en gris por falta de una cifra equivalente en la misma fuente.",
+    badge: "Dato municipal: cifras comparables para siete municipios. Los demás aparecen en gris porque no tienen una cifra equivalente en la misma fuente.",
     palette: ["#efe7b7", "#c9dc74", "#7ab95d", "#1a6b4d"],
     story:
-      "La metrópoli no es homogénea: San Pedro se despega del resto, mientras Apodaca, Escobedo y Santa Catarina quedan muy abajo del estándar mínimo de 9 m²/hab.",
-    tags: ["inventario comparable", "núcleo urbano", "déficit metropolitano"],
+      "La metrópoli no es homogénea: San Pedro se separa del resto, mientras Apodaca, Escobedo y Santa Catarina quedan muy abajo de la referencia de 9 m²/hab.",
+    tags: ["dato municipal", "fuente parcial", "déficit verde"],
     higherIsBetter: true
   },
   pollution: {
     type: "station",
     title: "Presión de contaminación por partículas",
     unit: "índice",
-    badge: "Índice derivado a partir de PM2.5 y PM10 anuales 2018 respecto a los límites anuales mexicanos vigentes en el reporte del SIMA.",
+    badge: "Dato por estación: índice propio construido con PM2.5 y PM10 anuales 2018 del SIMA. Ayuda a comparar presión, no reemplaza el reporte oficial.",
     palette: ["#f2eadc", "#e1b466", "#c96f45", "#8b2d24"],
     story:
-      "San Bernabé, García y Santa Catarina concentran las cargas particuladas más severas cuando se combinan PM10 y PM2.5. Pueblo Serena aparece como el nodo menos cargado del conjunto.",
-    tags: ["PM10", "PM2.5", "índice derivado"],
+      "San Bernabé, García y Santa Catarina muestran mayor presión por partículas cuando se combinan PM10 y PM2.5. Pueblo Serena aparece como el punto menos cargado.",
+    tags: ["dato por estación", "PM10", "PM2.5"],
     higherIsBetter: false
   },
   air: {
     type: "station",
     title: "Partículas finas PM2.5",
     unit: "µg/m³",
-    badge: "Promedios anuales 2018 por estación SIMA. Este es el mejor corte comparable que el buscador devuelve de forma consistente.",
+    badge: "Dato por estación: promedio anual 2018 de PM2.5 reportado por el SIMA. Permite comparar estaciones, no límites municipales exactos.",
     palette: ["#dcecf3", "#8dbfd0", "#4c8396", "#1c4d62"],
     story:
-      "Apodaca y Santa Catarina encabezan el PM2.5 anual de esta serie, seguidas por Universidad y San Bernabé. Pueblo Serena marca el valor más bajo del conjunto.",
-    tags: ["estaciones SIMA", "promedio anual", "2018"],
+      "Apodaca y Santa Catarina encabezan el PM2.5 anual de esta serie. Pueblo Serena marca el valor más bajo del conjunto.",
+    tags: ["dato por estación", "promedio anual", "2018"],
     higherIsBetter: false
   },
   alerts: {
     type: "alert",
     title: "Alertas y episodios recientes",
     unit: "",
-    badge: "Eventos recientes localizados en el mapa oficial de calidad del aire entre noviembre de 2025 y marzo de 2026, restringidos a los 9 municipios del mapa.",
+    badge: "Dato reciente: eventos localizados en el mapa oficial de calidad del aire. Sirve como contexto, no como serie histórica completa.",
     palette: ["#f7e4c1", "#f0af5d", "#dc6940", "#982c1e"],
     story:
-      "Dentro del recorte de 9 municipios, San Pedro destaca por un episodio fuerte de ozono a finales de febrero de 2026. García y Universidad muestran picos recientes de PM2.5 más moderados.",
-    tags: ["PM2.5", "O3", "2025-2026"],
+      "San Pedro destaca por un episodio de ozono en febrero de 2026. García y Universidad muestran picos recientes de PM2.5 más moderados.",
+    tags: ["dato reciente", "PM2.5", "O3"],
     higherIsBetter: false
   }
 };
@@ -465,16 +1157,23 @@ const legend = document.getElementById("legend");
 const rankList = document.getElementById("rank-list");
 const rankingTitle = document.getElementById("ranking-title");
 const climateChart = document.getElementById("climate-chart");
+const climateSummaryGrid = document.getElementById("climate-summary-grid");
+const climateDetail = document.getElementById("climate-detail");
 const trendStrip = document.getElementById("trend-strip");
 const noiseList = document.getElementById("noise-list");
 const storyTitle = document.getElementById("story-title");
 const storyCopy = document.getElementById("story-copy");
 const storyTags = document.getElementById("story-tags");
+const findingsList = document.getElementById("findings-list");
+const newsList = document.getElementById("news-list");
+const methodList = document.getElementById("method-list");
 const sourceList = document.getElementById("source-list");
+const missingDataList = document.getElementById("missing-data-list");
 
 let activeLayer = "greenery";
 let selectedId = "san-pedro";
 let focusMunicipalityId = null;
+let selectedClimateId = "monterrey";
 
 const greenTrend = [
   { year: "2000", value: 13.21 },
@@ -803,8 +1502,8 @@ function renderSnapshotTiles() {
   const tiles = [
     { label: "Municipios mapa", value: "9" },
     { label: "Límites INEGI", value: "2025" },
-    { label: "Estaciones SIMA", value: "12" },
-    { label: "Máximo reciente", value: "105 O3" }
+    { label: "Clima histórico", value: "1991-2024" },
+    { label: "Actualidad curada", value: "8 casos" }
   ];
   snapshotGrid.innerHTML = "";
   tiles.forEach((tile) => {
@@ -956,33 +1655,100 @@ function renderRanking(data) {
   });
 }
 
-function renderClimateChart() {
-  climateChart.innerHTML = "";
-  const maxTemp = Math.max(...climateSeries.map((item) => item.avgTemp));
-  const maxRain = Math.max(...climateSeries.map((item) => item.rain));
+function formatSigned(value, unit) {
+  const sign = value > 0 ? "+" : "";
+  return `${sign}${formatValue(value)} ${unit}`;
+}
 
-  climateSeries.forEach((item) => {
-    const row = document.createElement("div");
-    row.className = "climate-row";
-    row.innerHTML = `
-      <strong>${item.month}</strong>
-      <div class="climate-bars">
-        <div class="climate-bar">
-          <div class="climate-bar-track">
-            <div class="climate-bar-fill" style="width:${(item.avgTemp / maxTemp) * 100}%; background:#cf6e3f"></div>
-          </div>
-          <small>Temp. promedio: ${item.avgTemp} °C</small>
-        </div>
-        <div class="climate-bar">
-          <div class="climate-bar-track">
-            <div class="climate-bar-fill" style="width:${(item.rain / maxRain) * 100}%; background:#2a7292"></div>
-          </div>
-          <small>Lluvia acumulada: ${item.rain} mm</small>
-        </div>
-      </div>
+function renderClimateSummary() {
+  const hottest = [...climateHistorical].sort((left, right) => right.avgTemp - left.avgTemp)[0];
+  const wettest = [...climateHistorical].sort((left, right) => right.avgRain - left.avgRain)[0];
+  const fastestWarming = [...climateHistorical].sort((left, right) => right.tempTrend - left.tempTrend)[0];
+  const summaryTiles = [
+    { label: "Periodo", value: "1991-2024", note: "serie histórica aproximada" },
+    { label: "Municipios", value: "9", note: "mismo alcance del mapa" },
+    { label: "Más cálido", value: hottest.municipality, note: `${hottest.avgTemp} °C promedio` },
+    { label: "Mayor tendencia", value: fastestWarming.municipality, note: `${formatSigned(fastestWarming.tempTrend, "°C/década")}` },
+    { label: "Más lluvioso", value: wettest.municipality, note: `${wettest.avgRain} mm/año promedio` }
+  ];
+
+  climateSummaryGrid.innerHTML = "";
+  summaryTiles.forEach((tile) => {
+    const card = document.createElement("article");
+    card.className = "climate-summary-card";
+    card.innerHTML = `
+      <span>${tile.label}</span>
+      <strong>${tile.value}</strong>
+      <small>${tile.note}</small>
     `;
-    climateChart.appendChild(row);
+    climateSummaryGrid.appendChild(card);
   });
+}
+
+function renderClimateDetail(entry) {
+  climateDetail.innerHTML = `
+    <span class="status-pill">Aproximación por coordenada</span>
+    <h3>${entry.municipality}</h3>
+    <p>
+      Lectura estimada con coordenada representativa ${entry.coords}. Útil para comparar patrones
+      generales, no para medir microclimas por colonia.
+    </p>
+    <div class="climate-detail-grid">
+      <div><span>Temperatura media</span><strong>${entry.avgTemp} °C</strong></div>
+      <div><span>Lluvia anual</span><strong>${entry.avgRain} mm</strong></div>
+      <div><span>Tendencia temp.</span><strong>${formatSigned(entry.tempTrend, "°C/década")}</strong></div>
+      <div><span>Tendencia lluvia</span><strong>${formatSigned(entry.rainTrend, "mm/década")}</strong></div>
+    </div>
+    <p class="climate-detail-note">
+      Año más cálido: ${entry.hottestYear} (${entry.hottestTemp} °C). Año más lluvioso:
+      ${entry.rainiestYear} (${entry.rainiestRain} mm).
+    </p>
+    <a href="https://open-meteo.com/en/docs/historical-weather-api" target="_blank" rel="noreferrer">
+      Ver fuente climática base
+    </a>
+  `;
+}
+
+function renderClimateChart() {
+  renderClimateSummary();
+  climateChart.innerHTML = "";
+  const maxTemp = Math.max(...climateHistorical.map((item) => item.avgTemp));
+  const maxRain = Math.max(...climateHistorical.map((item) => item.avgRain));
+  const selected = climateHistorical.find((item) => item.id === selectedClimateId) ?? climateHistorical[0];
+
+  [...climateHistorical]
+    .sort((left, right) => right.avgTemp - left.avgTemp)
+    .forEach((item) => {
+      const row = document.createElement("button");
+      row.type = "button";
+      row.className = "climate-row";
+      row.classList.toggle("is-active", item.id === selected.id);
+      row.innerHTML = `
+        <strong>${item.municipality}</strong>
+        <div class="climate-bars">
+          <div class="climate-bar">
+            <div class="climate-bar-track">
+              <div class="climate-bar-fill" style="width:${(item.avgTemp / maxTemp) * 100}%; background:#cf6e3f"></div>
+            </div>
+            <small>${item.avgTemp} °C promedio</small>
+          </div>
+          <div class="climate-bar">
+            <div class="climate-bar-track">
+              <div class="climate-bar-fill" style="width:${(item.avgRain / maxRain) * 100}%; background:#2a7292"></div>
+            </div>
+            <small>${item.avgRain} mm/año</small>
+          </div>
+        </div>
+        <span>${formatSigned(item.tempTrend, "°C/década")}</span>
+      `;
+      row.addEventListener("click", () => {
+        selectedClimateId = item.id;
+        renderClimateChart();
+      });
+      climateChart.appendChild(row);
+    });
+
+  renderClimateDetail(selected);
 }
 
 function renderTrend() {
@@ -1023,12 +1789,106 @@ function renderStory() {
   });
 }
 
+function renderFindings() {
+  findingsList.innerHTML = "";
+  findingEntries.forEach((entry) => {
+    const card = document.createElement("article");
+    card.className = "finding-card";
+    card.innerHTML = `
+      <span class="status-pill">${entry.tag}</span>
+      <h3>${entry.title}</h3>
+      <p>${entry.body}</p>
+    `;
+    findingsList.appendChild(card);
+  });
+}
+
+function renderNews() {
+  newsList.innerHTML = "";
+  newsEntries.forEach((entry) => {
+    const card = document.createElement("article");
+    card.className = "news-card";
+    card.innerHTML = `
+      <div class="news-card-header">
+        <span class="status-pill">${entry.topic}</span>
+        <span>${entry.date}</span>
+      </div>
+      <h3>${entry.title}</h3>
+      <p>${entry.summary}</p>
+      <dl class="news-meta">
+        <div><dt>Fuente</dt><dd>${entry.sourceName}</dd></div>
+        <div><dt>Zona</dt><dd>${entry.zone}</dd></div>
+        <div><dt>Tipo</dt><dd>${entry.sourceType}</dd></div>
+        <div><dt>Cuidado</dt><dd>${entry.caution}</dd></div>
+      </dl>
+      <a href="${entry.url}" target="_blank" rel="noreferrer">Consultar fuente</a>
+    `;
+    newsList.appendChild(card);
+  });
+}
+
+function renderMethodology() {
+  methodList.innerHTML = "";
+  methodologyEntries.forEach((entry) => {
+    const card = document.createElement("article");
+    card.className = "method-item";
+    card.innerHTML = `<strong>${entry.title}</strong><p>${entry.body}</p>`;
+    methodList.appendChild(card);
+  });
+}
+
 function renderSources() {
   sourceList.innerHTML = "";
-  sourceEntries.forEach((entry) => {
-    const item = document.createElement("li");
-    item.innerHTML = `<a href="${entry.url}" target="_blank" rel="noreferrer">${entry.title}</a><p>${entry.body}</p>`;
-    sourceList.appendChild(item);
+  sourceGroups.forEach((group) => {
+    const section = document.createElement("section");
+    section.className = "source-group";
+    const cards = group.entries
+      .map(
+        (entry) => `
+          <article class="source-card">
+            <div class="source-card-header">
+              <span class="status-pill">${entry.type}</span>
+              <span>${entry.year}</span>
+            </div>
+            <h3>${entry.title}</h3>
+            <p>${entry.body}</p>
+            <dl class="source-meta">
+              <div><dt>Institución</dt><dd>${entry.institution}</dd></div>
+              <div><dt>Variable</dt><dd>${entry.variable}</dd></div>
+              <div><dt>Formato</dt><dd>${entry.format}</dd></div>
+              <div><dt>Limitación</dt><dd>${entry.limitation}</dd></div>
+            </dl>
+            <a href="${entry.url}" target="_blank" rel="noreferrer">Abrir fuente</a>
+          </article>
+        `
+      )
+      .join("");
+    section.innerHTML = `
+      <div class="source-group-heading">
+        <h3>${group.title}</h3>
+        <p>${group.description}</p>
+      </div>
+      <div class="source-card-grid">${cards}</div>
+    `;
+    sourceList.appendChild(section);
+  });
+}
+
+function renderMissingData() {
+  missingDataList.innerHTML = "";
+  missingDataEntries.forEach((entry) => {
+    const card = document.createElement("article");
+    card.className = "missing-card";
+    card.innerHTML = `
+      <h3>${entry.title}</h3>
+      <p>${entry.why}</p>
+      <dl class="missing-meta">
+        <div><dt>Quién debería publicarlo</dt><dd>${entry.owner}</dd></div>
+        <div><dt>Formato ideal</dt><dd>${entry.format}</dd></div>
+        <div><dt>Cómo afecta al proyecto</dt><dd>${entry.impact}</dd></div>
+      </dl>
+    `;
+    missingDataList.appendChild(card);
   });
 }
 
@@ -1066,8 +1926,12 @@ createMunicipalityNodes();
 createLabels();
 createStationNodes();
 renderSnapshotTiles();
+renderFindings();
+renderNews();
+renderMethodology();
 renderClimateChart();
 renderTrend();
 renderNoise();
 renderSources();
+renderMissingData();
 updateInterface();

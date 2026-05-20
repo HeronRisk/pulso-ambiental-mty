@@ -42,6 +42,60 @@ button {
   padding: 26px 0 40px;
 }
 
+.site-nav {
+  position: sticky;
+  top: 12px;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 18px;
+  padding: 12px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  border-radius: 999px;
+  background: rgba(255, 251, 244, 0.82);
+  box-shadow: 0 16px 40px rgba(63, 46, 20, 0.08);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.brand-mark,
+.nav-links a {
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.brand-mark {
+  flex: 0 0 auto;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(26, 107, 77, 0.1);
+  color: var(--forest);
+  font-weight: 800;
+}
+
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 6px;
+}
+
+.nav-links a {
+  padding: 8px 10px;
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 0.92rem;
+  transition: background 180ms ease, color 180ms ease;
+}
+
+.nav-links a:hover,
+.nav-links a:focus-visible {
+  background: rgba(31, 42, 42, 0.08);
+  color: var(--ink);
+}
+
 .hero,
 .card {
   backdrop-filter: blur(22px);
@@ -95,7 +149,11 @@ h3 {
 .snapshot-note,
 .story-copy,
 #detail-description,
-.chart-note {
+.chart-note,
+.section-intro,
+.method-intro,
+.missing-note,
+.site-footer {
   color: var(--muted);
   line-height: 1.6;
 }
@@ -115,6 +173,37 @@ h3 {
 
 .hero-actions {
   margin-top: 24px;
+}
+
+.municipality-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  max-width: 680px;
+  margin-top: 18px;
+}
+
+.municipality-chips span,
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.municipality-chips span {
+  padding: 8px 10px;
+  background: rgba(255, 255, 255, 0.62);
+  color: var(--muted);
+  border: 1px solid rgba(31, 42, 42, 0.08);
+}
+
+.status-pill {
+  padding: 7px 9px;
+  background: rgba(26, 107, 77, 0.1);
+  color: var(--forest);
 }
 
 .hero-link {
@@ -192,6 +281,71 @@ h3 {
 
 .section-heading.compact {
   margin-bottom: 10px;
+}
+
+.section-intro {
+  max-width: 62ch;
+  margin: 12px 0 0;
+}
+
+.how-to-grid,
+.findings-grid,
+.source-card-grid,
+.news-grid,
+.missing-grid {
+  display: grid;
+  gap: 16px;
+}
+
+.how-to-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 20px;
+}
+
+.step-card,
+.finding-card,
+.method-item,
+.source-card,
+.missing-card {
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.66);
+}
+
+.step-card {
+  display: grid;
+  gap: 12px;
+  padding: 18px;
+  border-radius: 22px;
+}
+
+.step-card span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  background: var(--ink);
+  color: #f6f1e6;
+  font-weight: 800;
+}
+
+.step-card h3,
+.finding-card h3,
+.source-card h3,
+.missing-card h3 {
+  font-size: 1.35rem;
+  line-height: 1.08;
+}
+
+.step-card p,
+.finding-card p,
+.method-item p,
+.source-card p,
+.missing-card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.55;
 }
 
 .metric-chip {
@@ -497,6 +651,53 @@ h3 {
   min-height: 100%;
 }
 
+.findings-section {
+  background:
+    linear-gradient(135deg, rgba(255, 250, 241, 0.9), rgba(232, 239, 222, 0.72)),
+    var(--surface);
+}
+
+.findings-grid {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  margin-top: 20px;
+}
+
+.finding-card {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+  min-height: 220px;
+  padding: 18px;
+  border-radius: 22px;
+}
+
+.method-card {
+  background:
+    linear-gradient(140deg, rgba(255, 250, 241, 0.84), rgba(231, 236, 229, 0.72)),
+    var(--surface);
+}
+
+.method-intro {
+  margin: 10px 0 0;
+}
+
+.method-list {
+  display: grid;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.method-item {
+  display: grid;
+  gap: 6px;
+  padding: 14px;
+  border-radius: 18px;
+}
+
+.method-item strong {
+  color: var(--ink);
+}
+
 .rank-list,
 .noise-list,
 .source-list {
@@ -533,17 +734,124 @@ h3 {
   border-radius: inherit;
 }
 
-.climate-chart {
-  margin-top: 18px;
+.two-card-grid {
+  grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+}
+
+.climate-section {
+  background:
+    linear-gradient(135deg, rgba(255, 250, 241, 0.9), rgba(224, 238, 241, 0.74)),
+    var(--surface);
+}
+
+.method-pills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+  max-width: 320px;
+}
+
+.method-pills span {
+  padding: 9px 11px;
+  border-radius: 999px;
+  background: rgba(42, 114, 146, 0.11);
+  color: var(--storm);
+  font-size: 0.86rem;
+  font-weight: 800;
+}
+
+.climate-summary-grid {
   display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 12px;
+  margin-top: 22px;
+}
+
+.climate-summary-card {
+  display: grid;
+  gap: 6px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.66);
+}
+
+.climate-summary-card span,
+.climate-summary-card small,
+.climate-mini-note {
+  color: var(--muted);
+}
+
+.climate-summary-card strong {
+  font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", serif;
+  font-size: 1.55rem;
+  line-height: 1.05;
+}
+
+.climate-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.55fr);
+  gap: 20px;
+  margin-top: 22px;
+}
+
+.climate-chart-panel,
+.climate-detail {
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.62);
+}
+
+.inline-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.climate-mini-note {
+  max-width: 22ch;
+  margin: 0;
+  line-height: 1.45;
+}
+
+.climate-chart {
+  display: grid;
+  gap: 10px;
 }
 
 .climate-row {
   display: grid;
-  grid-template-columns: 72px 1fr;
-  gap: 12px;
+  grid-template-columns: 120px minmax(0, 1fr) 112px;
+  gap: 14px;
   align-items: center;
+  width: 100%;
+  padding: 12px;
+  border: 1px solid rgba(31, 42, 42, 0.08);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.66);
+  color: var(--ink);
+  text-align: left;
+  cursor: pointer;
+  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+}
+
+.climate-row:hover,
+.climate-row:focus-visible,
+.climate-row.is-active {
+  transform: translateY(-1px);
+  border-color: rgba(42, 114, 146, 0.28);
+  background: rgba(224, 238, 241, 0.62);
+}
+
+.climate-row > span {
+  justify-self: end;
+  color: var(--storm);
+  font-size: 0.9rem;
+  font-weight: 800;
 }
 
 .climate-bars {
@@ -571,6 +879,60 @@ h3 {
 
 .climate-bar small {
   color: var(--muted);
+}
+
+.climate-detail {
+  align-content: start;
+  display: grid;
+  gap: 14px;
+}
+
+.climate-detail h3 {
+  font-size: clamp(2rem, 3vw, 3rem);
+}
+
+.climate-detail p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.58;
+}
+
+.climate-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.climate-detail-grid div {
+  display: grid;
+  gap: 4px;
+  padding: 12px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.68);
+}
+
+.climate-detail-grid span {
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.climate-detail-grid strong {
+  font-size: 1.2rem;
+}
+
+.climate-detail-note {
+  font-weight: 700;
+  color: var(--ink) !important;
+}
+
+.climate-detail a {
+  width: fit-content;
+  padding: 10px 13px;
+  border-radius: 999px;
+  background: rgba(34, 80, 116, 0.1);
+  color: var(--storm);
+  font-weight: 800;
+  text-decoration: none;
 }
 
 .trend-strip {
@@ -634,10 +996,183 @@ h3 {
   font-size: 0.9rem;
 }
 
+.news-section {
+  background:
+    linear-gradient(135deg, rgba(255, 250, 241, 0.88), rgba(240, 226, 212, 0.76)),
+    var(--surface);
+}
+
+.news-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-top: 20px;
+}
+
+.news-card {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.66);
+}
+
+.news-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 0.84rem;
+}
+
+.news-card h3 {
+  font-size: 1.35rem;
+  line-height: 1.08;
+}
+
+.news-card p,
+.news-note {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.news-meta {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+}
+
+.news-meta div {
+  display: grid;
+  gap: 2px;
+}
+
+.news-meta dt {
+  color: var(--muted);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.news-meta dd {
+  margin: 0;
+  color: var(--ink);
+  line-height: 1.4;
+}
+
+.news-card a {
+  align-self: end;
+  width: fit-content;
+  padding: 9px 12px;
+  border-radius: 999px;
+  background: rgba(188, 109, 60, 0.11);
+  color: var(--soil);
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.news-note {
+  max-width: 78ch;
+  margin-top: 18px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
 .source-list {
-  margin: 18px 0 0;
+  margin: 20px 0 0;
   padding: 0;
   list-style: none;
+}
+
+.source-group {
+  display: grid;
+  gap: 14px;
+}
+
+.source-group + .source-group {
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+}
+
+.source-group-heading {
+  display: grid;
+  gap: 6px;
+}
+
+.source-group-heading h3 {
+  font-size: 1.55rem;
+}
+
+.source-group-heading p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.source-card-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.source-card,
+.missing-card {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+  padding: 16px;
+  border-radius: 20px;
+}
+
+.source-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 0.84rem;
+}
+
+.source-card a {
+  align-self: end;
+  width: fit-content;
+  padding: 9px 12px;
+  border-radius: 999px;
+  background: rgba(34, 80, 116, 0.1);
+  color: var(--storm);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.source-meta,
+.missing-meta {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+}
+
+.source-meta div,
+.missing-meta div {
+  display: grid;
+  gap: 2px;
+}
+
+.source-meta dt,
+.missing-meta dt {
+  color: var(--muted);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.source-meta dd,
+.missing-meta dd {
+  margin: 0;
+  color: var(--ink);
+  line-height: 1.4;
 }
 
 .source-list li {
@@ -656,6 +1191,28 @@ h3 {
   margin: 6px 0 0;
   color: var(--muted);
   line-height: 1.55;
+}
+
+.missing-section {
+  background:
+    linear-gradient(135deg, rgba(255, 250, 241, 0.86), rgba(239, 226, 210, 0.78)),
+    var(--surface);
+}
+
+.missing-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-top: 20px;
+}
+
+.missing-card {
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.missing-note {
+  max-width: 70ch;
+  margin: 20px 0 0;
+  font-weight: 700;
+  color: var(--ink);
 }
 
 .participation-section {
@@ -700,12 +1257,32 @@ h3 {
   overflow-wrap: anywhere;
 }
 
+.site-footer {
+  padding: 10px 6px 0;
+  text-align: center;
+}
+
 @media (max-width: 1100px) {
   .hero,
   .map-layout,
   .insights-grid,
-  .participation-grid {
+  .two-card-grid,
+  .climate-layout,
+  .participation-grid,
+  .how-to-grid,
+  .findings-grid,
+  .source-card-grid,
+  .news-grid,
+  .missing-grid {
     grid-template-columns: 1fr;
+  }
+
+  .findings-grid,
+  .source-card-grid,
+  .news-grid,
+  .climate-summary-grid,
+  .missing-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -715,10 +1292,62 @@ h3 {
     padding-top: 18px;
   }
 
+  .site-nav {
+    position: static;
+    display: grid;
+    border-radius: 24px;
+  }
+
+  .brand-mark {
+    text-align: center;
+  }
+
+  .nav-links {
+    justify-content: center;
+  }
+
+  .nav-links a {
+    font-size: 0.84rem;
+  }
+
+  h1 {
+    max-width: 100%;
+  }
+
   .hero,
   .card {
     padding: 20px;
     border-radius: 24px;
+  }
+
+  .municipality-chips {
+    max-height: 106px;
+    overflow: auto;
+  }
+
+  .section-heading {
+    display: grid;
+  }
+
+  .metric-switcher {
+    width: 100%;
+  }
+
+  .metric-chip {
+    flex: 1 1 140px;
+  }
+
+  .how-to-grid,
+  .findings-grid,
+  .source-card-grid,
+  .news-grid,
+  .climate-summary-grid,
+  .missing-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .finding-card {
+    min-height: auto;
   }
 
   .map-frame {
@@ -739,7 +1368,15 @@ h3 {
     grid-template-columns: 1fr;
   }
 
+  .climate-row > span {
+    justify-self: start;
+  }
+
   .climate-bars {
+    grid-template-columns: 1fr;
+  }
+
+  .climate-detail-grid {
     grid-template-columns: 1fr;
   }
 }
