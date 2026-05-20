@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pulso Ambiental MTY</title>
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Pulso Ambiental MTY</p>
+          <h1>Un tablero en español con datos reales sobre verde urbano, contaminación, ruido, temperatura y lluvia.</h1>
+          <p class="hero-text">
+            Pulso Ambiental MTY concentra información ambiental dispersa para mirar la ciudad desde
+            una escala metropolitana. En esta versión el mapa se concentra en los
+            <strong>9 municipios más poblados de Nuevo León</strong>, con límites municipales reales
+            derivados de INEGI. Cada capa indica su año de referencia y su fuente para no vender
+            comparaciones falsas como si todo viniera del mismo corte temporal.
+          </p>
+          <div class="hero-actions">
+            <a class="hero-link" href="#mapa">Explorar mapa</a>
+            <a class="hero-link hero-link-muted" href="#metodologia">Ver metodología</a>
+          </div>
+        </div>
+        <aside class="hero-panel">
+          <p class="panel-label">Lectura rápida</p>
+          <div class="snapshot-grid" id="snapshot-grid"></div>
+          <p class="snapshot-note">
+            Alcance principal: 9 municipios priorizados, estaciones del SIMA y fuentes públicas
+            disponibles. Las capas no tienen el mismo año; por eso cada vista muestra cobertura,
+            fuente y fecha.
+          </p>
+        </aside>
+      </header>
+
+      <main class="dashboard">
+        <section class="card map-section" id="mapa">
+          <div class="section-heading">
+            <div>
+              <p class="section-kicker">Mapa interactivo</p>
+              <h2>Área metropolitana, no solo Monterrey municipio</h2>
+            </div>
+            <div class="metric-switcher">
+              <button class="metric-chip is-active" data-layer="greenery">Áreas verdes</button>
+              <button class="metric-chip" data-layer="pollution">Contaminación</button>
+              <button class="metric-chip" data-layer="air">Aire PM2.5</button>
+              <button class="metric-chip" data-layer="alerts">Alertas recientes</button>
+            </div>
+          </div>
+
+          <div class="map-layout">
+            <aside class="municipality-panel">
+              <div class="panel-header">
+                <p class="section-kicker">Municipios</p>
+                <h3>Navegación municipal</h3>
+                <p class="panel-copy">
+                  Selecciona un municipio para resaltarlo y acercar el mapa a su geometría real.
+                </p>
+              </div>
+              <div class="municipality-list" id="municipality-list"></div>
+            </aside>
+
+            <div class="map-frame">
+              <svg id="metro-map" viewBox="0 0 780 520" role="img" aria-labelledby="metro-map-title">
+                <title id="metro-map-title">
+                  Mapa estilizado del área metropolitana de Monterrey con municipios y estaciones del SIMA
+                </title>
+                <g id="map-viewport">
+                  <g class="map-grid">
+                    <path d="M60 70 H720" />
+                    <path d="M60 160 H720" />
+                    <path d="M60 250 H720" />
+                    <path d="M60 340 H720" />
+                    <path d="M60 430 H720" />
+                    <path d="M120 36 V470" />
+                    <path d="M240 36 V470" />
+                    <path d="M360 36 V470" />
+                    <path d="M480 36 V470" />
+                    <path d="M600 36 V470" />
+                  </g>
+                  <g id="municipality-layer"></g>
+                  <g id="station-layer"></g>
+                  <g id="label-layer"></g>
+                </g>
+              </svg>
+              <div class="map-badge" id="map-badge"></div>
+            </div>
+
+            <aside class="detail-panel">
+              <div class="detail-header">
+                <p class="section-kicker">Detalle</p>
+                <h3 id="detail-name"></h3>
+                <p id="detail-description"></p>
+              </div>
+              <div class="detail-value">
+                <span id="detail-value"></span>
+                <small id="detail-unit"></small>
+              </div>
+              <div class="detail-meta">
+                <div class="meta-chip" id="detail-year"></div>
+                <a class="meta-chip meta-link" id="detail-source" href="#" target="_blank" rel="noreferrer">Fuente</a>
+              </div>
+              <div class="detail-bars" id="detail-bars"></div>
+              <div class="legend" id="legend"></div>
+            </aside>
+          </div>
+        </section>
+
+        <section class="insights-grid">
+          <article class="card chart-card">
+            <div class="section-heading compact">
+              <div>
+                <p class="section-kicker">Ranking</p>
+                <h2 id="ranking-title">Top metropolitano</h2>
+              </div>
+            </div>
+            <div class="rank-list" id="rank-list"></div>
+          </article>
+
+          <article class="card chart-card">
+            <div class="section-heading compact">
+              <div>
+                <p class="section-kicker">Temperatura y lluvia</p>
+                <h2>Comportamiento mensual observado por el SIMA</h2>
+              </div>
+            </div>
+            <div class="climate-chart" id="climate-chart"></div>
+            <p class="chart-note">
+              Serie armada con reportes mensuales del SIMA de abril a agosto de 2024, cuando el
+              buscador devuelve tablas comparables con temperatura promedio y precipitación acumulada.
+            </p>
+          </article>
+
+          <article class="card narrative-card">
+            <div class="section-heading compact">
+              <div>
+                <p class="section-kicker">Áreas verdes</p>
+                <h2>Tendencia metropolitana</h2>
+              </div>
+            </div>
+            <div class="trend-strip" id="trend-strip"></div>
+            <p class="story-copy">
+              El estudio espacio-temporal de la ZMM reporta una caída de
+              <strong>13.21 m²/hab en 2000</strong> a <strong>7.75 m²/hab en 2019</strong>, con una
+              pérdida media de <strong>0.29 m²/hab por año</strong>. Juárez, Monterrey, Apodaca y
+              Guadalupe aparecen entre los municipios con mayor pérdida.
+            </p>
+            <div class="story-tags">
+              <span class="story-tag">Fuente satelital 2000-2019</span>
+              <span class="story-tag">ZMM completa</span>
+              <span class="story-tag">Calidad ambiental en descenso</span>
+            </div>
+          </article>
+        </section>
+
+        <section class="insights-grid secondary-grid">
+          <article class="card chart-card">
+            <div class="section-heading compact">
+              <div>
+                <p class="section-kicker">Ruido</p>
+                <h2>Lo que sí existe públicamente</h2>
+              </div>
+            </div>
+            <div class="noise-list" id="noise-list"></div>
+            <p class="chart-note">
+              No existe una red pública metropolitana de medición continua de ruido equivalente al
+              SIMA. Esta vista usa límites de decibeles, multas y reportes ciudadanos donde sí hay
+              dato público identificable.
+            </p>
+          </article>
+
+          <article class="card narrative-card">
+            <div class="section-heading compact">
+              <div>
+                <p class="section-kicker">Lectura activa</p>
+                <h2 id="story-title">La metrópoli cambia según la capa</h2>
+              </div>
+            </div>
+            <p class="story-copy" id="story-copy"></p>
+            <div class="story-tags" id="story-tags"></div>
+          </article>
+
+          <article class="card sources-card" id="metodologia">
+            <div class="section-heading compact">
+              <div>
+                <p class="section-kicker">Metodología</p>
+              <h2>Qué sí compara y qué no</h2>
+              </div>
+            </div>
+            <ul class="source-list" id="source-list"></ul>
+          </article>
+        </section>
+
+        <section class="card participation-section" id="participacion">
+          <div class="section-heading compact">
+            <div>
+              <p class="section-kicker">Participación</p>
+              <h2>Comentarios para mejorar la lectura ambiental</h2>
+            </div>
+          </div>
+          <div class="participation-grid">
+            <p>
+              Este proyecto está pensado como una base de consulta ciudadana y académica. Si una
+              persona detecta una fuente más reciente, un dato municipal que deba corregirse o una
+              explicación poco clara, puede enviar retroalimentación para mejorar futuras versiones.
+            </p>
+            <div class="contact-card">
+              <span>Correo del proyecto</span>
+              <a href="mailto:pulsoambientalmty@gmail.com">pulsoambientalmty@gmail.com</a>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="./metro9-data.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
