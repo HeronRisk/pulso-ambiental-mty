@@ -71,16 +71,20 @@ Capturas existentes
 - evidence/07_clima_actualidad.png
 - evidence/08_desktop_cierre_mapa.png
 - evidence/08_mobile_cierre.png
+- evidence/09_public_desktop_home.png
+- evidence/09_public_mobile_map.png
+- evidence/09_public_mobile_map_detail.png
 
 Sitio publicado
 URL: https://heronrisk.github.io/pulso-ambiental-mty/
 Nota: despues de cambios locales, el usuario suele hacer commit/push con GitHub Desktop.
 
 Pendientes del sitio antes de cerrar definitivamente
-1. Revisar la version publicada despues del push mas reciente.
-2. Confirmar que GitHub Pages ya muestra clima historico y actualidad ambiental.
-3. Abrir enlaces clave desde la version publicada.
-4. Confirmar que no haya discrepancias entre documento final y sitio.
+1. Usar la URL publicada y las capturas publicas como evidencia del sitio en la entrega final.
+2. Confirmar que el documento final describa el mismo alcance del sitio: 9 municipios,
+   clima historico aproximado, actualidad curada, fuentes y datos faltantes.
+3. Hacer una revision puntual de enlaces externos clave antes de la entrega si cambia alguna
+   fuente o noticia, porque los destinos externos pueden moverse o bloquearse.
 
 Pendientes de contenido para entregas finales
 1. Documento integral final.
@@ -170,6 +174,30 @@ Validacion local de cierre:
 - Clima: 9 filas; actualidad: 8 tarjetas; fuentes: 34 tarjetas; datos faltantes: 9 tarjetas.
 - Captura desktop de cierre y captura movil generadas.
 
+Revision del sitio publicado en GitHub Pages - 21 de mayo de 2026
+Resultado general:
+- La version publicada ya corresponde al cierre UX reciente: hero actualizado, capa
+  "Presion por particulas", detalle inicial "Vista general" y nota visible de actualidad
+  revisada en mayo de 2026.
+- GitHub Pages respondio correctamente para index.html, styles.css, app.js y metro9-data.js.
+- En la version publicada se validaron 9 municipios en el mapa, 4 capas, seleccion de
+  Monterrey con zoom, clima historico con 9 filas, actualidad con 8 tarjetas, fuentes con
+  34 tarjetas y datos faltantes con 9 tarjetas.
+- La consola del navegador no mostro errores ni advertencias durante la prueba publicada.
+- Las anclas internas no tienen destinos faltantes; el sitio expone 34 enlaces de fuentes,
+  8 enlaces de actualidad y el correo de participacion.
+- Se reviso una captura desktop publica y la navegacion movil publicada mantiene lectura
+  clara para portada, guia y entrada al mapa.
+
+Problemas bloqueantes encontrados:
+- Ninguno durante la revision publicada.
+
+Mejoras menores despues de la revision publicada:
+- Mantener como chequeo final una muestra de enlaces externos clave antes de entregar,
+  porque periodicos, dependencias y servicios pueden cambiar URLs o disponibilidad.
+- En la evidencia final conviene incluir al menos una captura del mapa con municipio
+  seleccionado y una captura de clima o actualidad ademas de la portada publica.
+
 Riesgos abiertos
 - Algunas noticias pueden cambiar o quedar bloqueadas por medios.
 - Algunas fuentes externas pueden no responder bien a validacion automatica.
@@ -185,8 +213,8 @@ Mejoras menores recomendadas
 - En video, mostrar el sitio como evidencia visual principal.
 
 Estado de Git
-Despues del Prompt 3 hay cambios locales en index.html, app.js, styles.css, project_memory y
-capturas nuevas dentro de evidence. Revisar git antes de commit o push.
+Despues del Prompt 4 se agregaron capturas publicas nuevas dentro de evidence y se actualizo
+project_memory/03_estado_sitio_y_pendientes.txt. Revisar git antes de commit o push.
 
 Regla para futuros cambios al sitio
 Antes de programar:
