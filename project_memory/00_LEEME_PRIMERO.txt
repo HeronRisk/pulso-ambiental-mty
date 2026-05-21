@@ -1,0 +1,56 @@
+PULSO AMBIENTAL MTY - MEMORIA EXTERNA DEL PROYECTO
+Ultima actualizacion: 20 de mayo de 2026
+
+Objetivo de esta carpeta
+Esta carpeta existe para que la informacion del proyecto no dependa solo del chat. Antes de continuar con sitio, documento final, presentacion, guion de video o evidencia, se deben consultar estos archivos y actualizar los hallazgos relevantes al terminar cada etapa.
+
+Archivos de memoria
+1. 01_contexto_y_estilo.txt
+   Resume el proyecto, el tono de escritura, los beneficiarios, objetivos, alcance, ODS, entregables y documentos consultados.
+
+2. 02_fuentes_y_datos.txt
+   Organiza fuentes, variables ambientales, datos disponibles, clima historico, noticias/casos locales y vacios de informacion.
+
+3. 03_estado_sitio_y_pendientes.txt
+   Registra el estado tecnico y de contenido del sitio web, validaciones realizadas, pendientes y recomendaciones.
+
+4. 04_plan_y_prompts_integrados.txt
+   Contiene el plan de trabajo mejorado y los prompts integrados para cerrar el proyecto de manera ordenada.
+
+Regla de trabajo para futuras fases
+Cada nuevo prompt importante debe seguir este flujo:
+1. Leer los archivos de project_memory.
+2. Revisar los documentos y archivos actuales que correspondan.
+3. Ejecutar la tarea pedida.
+4. Actualizar project_memory si hay nuevos datos, decisiones, fuentes, entregables, cambios de alcance o pendientes.
+
+Archivos principales del sitio
+- index.html
+- styles.css
+- app.js
+- metro9-data.js
+- metro9.geojson
+
+URL publica del sitio
+https://heronrisk.github.io/pulso-ambiental-mty/
+
+Repositorio GitHub
+https://github.com/HeronRisk/pulso-ambiental-mty
+
+Ruta local principal
+/Users/kekomputer/Documents/Playground
+
+Documentos academicos consultados
+- Actividad 2:
+  /Users/kekomputer/Documents/TecMilenio/Servicio Social/2025-2026 - ODS/Actividad 2/ServicioSocial_Activuidad2_SAGT.docx
+- Actividad 3:
+  /Users/kekomputer/Documents/TecMilenio/Servicio Social/2025-2026 - ODS/Actividad 3/ServicioSocial_Activuidad3_SAGT.docx
+- Actividad 4:
+  /Users/kekomputer/Documents/TecMilenio/Servicio Social/2025-2026 - ODS/Actividad 4 - Presentación de Proyecto/ServicioSocial_Activuidad4_SAGT.docx
+- Avance de Proyecto:
+  /Users/kekomputer/Documents/TecMilenio/Servicio Social/2025-2026 - ODS/Avance de Proyecto/ServicioSocial_Avance de Proyecto_SAGT.docx
+- Actividad 5 corregida:
+  /Users/kekomputer/Documents/TecMilenio/Servicio Social/2025-2026 - ODS/Actividad 5/ServicioSocial_Actividad5_SAGT_CORREGIDA.docx
+
+Nota importante sobre estilo
+El texto final debe sonar como Sergio: claro, directo, reflexivo y formal, pero no demasiado tecnico. Evitar lenguaje exagerado, acusatorio o academico de relleno. La mejor version del proyecto combina rigor con accesibilidad ciudadana.

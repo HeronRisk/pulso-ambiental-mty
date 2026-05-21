@@ -26,7 +26,7 @@
       <header class="hero" id="inicio">
         <div class="hero-copy">
           <p class="eyebrow">Pulso Ambiental MTY</p>
-          <h1>Consulta ambiental para el Monterrey metropolitano.</h1>
+          <h1>Explora el pulso ambiental de Monterrey y su metrópoli.</h1>
           <p class="hero-text">
             Consulta y compara información ambiental de los <strong>9 municipios más poblados de
             Nuevo León</strong>. El sitio reúne datos públicos sobre áreas verdes, calidad del aire,
@@ -77,7 +77,7 @@
             <article class="step-card">
               <span>2</span>
               <h3>Cambia la capa</h3>
-              <p>Revisa áreas verdes, contaminación, PM2.5 o alertas recientes de calidad del aire.</p>
+              <p>Revisa áreas verdes, partículas, PM2.5 o alertas recientes de calidad del aire.</p>
             </article>
             <article class="step-card">
               <span>3</span>
@@ -100,7 +100,7 @@
             </div>
             <div class="metric-switcher">
               <button class="metric-chip is-active" data-layer="greenery">Áreas verdes</button>
-              <button class="metric-chip" data-layer="pollution">Contaminación</button>
+              <button class="metric-chip" data-layer="pollution">Presión por partículas</button>
               <button class="metric-chip" data-layer="air">Aire PM2.5</button>
               <button class="metric-chip" data-layer="alerts">Alertas recientes</button>
             </div>
@@ -122,7 +122,7 @@
             <div class="map-frame">
               <svg id="metro-map" viewBox="0 0 780 520" role="img" aria-labelledby="metro-map-title">
                 <title id="metro-map-title">
-                  Mapa estilizado del área metropolitana de Monterrey con municipios y estaciones del SIMA
+                  Mapa de los 9 municipios priorizados con límites derivados de INEGI y estaciones del SIMA
                 </title>
                 <g id="map-viewport">
                   <g class="map-grid">
@@ -163,6 +163,32 @@
               <div class="legend" id="legend"></div>
             </aside>
           </div>
+        </section>
+
+        <section class="insights-grid map-reading-grid" aria-label="Lectura de la capa activa">
+          <article class="card chart-card">
+            <div class="section-heading compact">
+              <div>
+                <p class="section-kicker">Ranking</p>
+                <h2 id="ranking-title">Top metropolitano</h2>
+              </div>
+            </div>
+            <p class="chart-note">
+              Este ranking cambia con la capa activa del mapa y conserva su alcance metodológico.
+            </p>
+            <div class="rank-list" id="rank-list"></div>
+          </article>
+
+          <article class="card narrative-card">
+            <div class="section-heading compact">
+              <div>
+                <p class="section-kicker">Lectura activa</p>
+                <h2 id="story-title">La metrópoli cambia según la capa</h2>
+              </div>
+            </div>
+            <p class="story-copy" id="story-copy"></p>
+            <div class="story-tags" id="story-tags"></div>
+          </article>
         </section>
 
         <section class="card findings-section" id="hallazgos">
@@ -223,6 +249,7 @@
                 Ambiental MTY no emite acusaciones propias: resume información publicada por
                 fuentes externas y enlaza la fuente original para consulta.
               </p>
+              <p class="news-reviewed">Actualidad revisada en mayo de 2026.</p>
             </div>
           </div>
           <div class="news-grid" id="news-list"></div>
@@ -232,17 +259,7 @@
           </p>
         </section>
 
-        <section class="insights-grid two-card-grid">
-          <article class="card chart-card">
-            <div class="section-heading compact">
-              <div>
-                <p class="section-kicker">Ranking</p>
-                <h2 id="ranking-title">Top metropolitano</h2>
-              </div>
-            </div>
-            <div class="rank-list" id="rank-list"></div>
-          </article>
-
+        <section class="insights-grid secondary-grid">
           <article class="card narrative-card">
             <div class="section-heading compact">
               <div>
@@ -260,12 +277,10 @@
             <div class="story-tags">
               <span class="story-tag">Fuente satelital 2000-2019</span>
               <span class="story-tag">ZMM completa</span>
-              <span class="story-tag">Calidad ambiental en descenso</span>
+              <span class="story-tag">Pérdida de verde urbano</span>
             </div>
           </article>
-        </section>
 
-        <section class="insights-grid secondary-grid">
           <article class="card chart-card">
             <div class="section-heading compact">
               <div>
@@ -279,17 +294,6 @@
               SIMA. Esta vista usa límites de decibeles, multas y reportes ciudadanos donde sí hay
               dato público identificable.
             </p>
-          </article>
-
-          <article class="card narrative-card">
-            <div class="section-heading compact">
-              <div>
-                <p class="section-kicker">Lectura activa</p>
-                <h2 id="story-title">La metrópoli cambia según la capa</h2>
-              </div>
-            </div>
-            <p class="story-copy" id="story-copy"></p>
-            <div class="story-tags" id="story-tags"></div>
           </article>
 
           <article class="card method-card" id="metodologia">

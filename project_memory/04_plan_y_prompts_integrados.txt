@@ -1,0 +1,309 @@
+PULSO AMBIENTAL MTY - PLAN Y PROMPTS INTEGRADOS
+Ultima actualizacion: 20 de mayo de 2026
+
+Plan general corregido
+Primero se debe cerrar y validar el sitio web como evidencia funcional. Despues se usa el sitio, las actividades previas y esta memoria externa para generar el documento integral final. Luego se crea la presentacion ejecutiva, el guion de video de 5 minutos, la evidencia de presentacion a comunidad y el checklist final contra rubrica.
+
+Regla transversal para todos los prompts
+Antes de responder o implementar, Codex debe:
+1. Leer project_memory/00_LEEME_PRIMERO.txt.
+2. Leer project_memory/01_contexto_y_estilo.txt.
+3. Leer project_memory/02_fuentes_y_datos.txt.
+4. Leer project_memory/03_estado_sitio_y_pendientes.txt.
+5. Revisar los archivos actuales que correspondan: sitio, documentos, evidencia o README.
+6. Al terminar, actualizar project_memory si hay nueva informacion, fuentes, pendientes, decisiones o entregables.
+
+PROMPT 0 - RECONSTRUIR MEMORIA Y BASE DEL PROYECTO
+Usar cuando se abra una conversacion nueva o haya riesgo de perdida de contexto.
+
+Texto:
+Lee todos los archivos dentro de project_memory y revisa los documentos actuales del proyecto en el repositorio. Resume el estado del proyecto Pulso Ambiental MTY, los entregables pendientes, los riesgos abiertos y el siguiente paso recomendado. No programes todavia. Si detectas informacion desactualizada en project_memory, propon que archivo actualizar y por que.
+
+PROMPT 1 - AUDITORIA INTEGRAL CONTRA RUBRICA FINAL
+Objetivo: saber que falta antes de generar documento final.
+
+Texto:
+Lee project_memory completo, revisa el sitio actual, los documentos de Actividades 2, 3, 4, Avance de Proyecto y Actividad 5 corregida, y compara todo contra la rubrica final.
+
+Evalua:
+1. Elementos ya completos.
+2. Elementos incompletos.
+3. Elementos faltantes segun la rubrica final.
+4. Que partes del sitio ya sirven como evidencia.
+5. Que partes del documento final se pueden reutilizar.
+6. Que evidencias faltan.
+7. Que riesgos o contradicciones hay entre sitio, documentos y rubrica.
+
+No programes todavia. Entrega diagnostico priorizado y actualiza project_memory/03_estado_sitio_y_pendientes.txt con los pendientes nuevos.
+
+PROMPT 2 - CIERRE UX Y REDACCION DEL SITIO
+Objetivo: detectar ajustes menores del sitio antes de documento.
+
+Texto:
+Lee project_memory y revisa el sitio Pulso Ambiental MTY como usuario promedio. Evalua si se entiende rapidamente el proyecto, municipios, mapa, capas, fuentes, clima historico, actualidad ambiental, metodologia, datos faltantes y participacion.
+
+Entrega:
+1. Problemas de claridad.
+2. Textos que deberian cambiarse.
+3. Secciones que sobran o deben moverse.
+4. Ajustes menores recomendados antes de publicar.
+5. Riesgos de precision o lenguaje.
+
+No programes todavia. Si recomiendas cambios, separa cambios obligatorios de cambios opcionales.
+
+PROMPT 3 - IMPLEMENTACION FINAL DEL SITIO
+Objetivo: aplicar solo ajustes menores despues de la auditoria UX.
+
+Texto:
+Con base en la auditoria UX aprobada, implementa ajustes finales del sitio.
+
+Antes de editar:
+1. Lee project_memory.
+2. Revisa git status.
+3. Revisa index.html, app.js y styles.css.
+4. Explica que cambios haras.
+
+Implementa solo ajustes aprobados como:
+1. "Actualidad revisada en mayo de 2026".
+2. Correcciones de redaccion.
+3. Aclaraciones metodologicas de clima.
+4. Mejoras menores de fuentes o datos faltantes.
+5. Ajustes responsive si hay problema.
+
+Despues valida:
+- node --check app.js.
+- carga local.
+- consola sin errores.
+- mapa, capas y seleccion municipal.
+- clima historico.
+- actualidad.
+- enlaces principales.
+- vista movil y escritorio.
+
+Actualiza project_memory/03_estado_sitio_y_pendientes.txt.
+No generes todavia documento final ni presentacion.
+
+PROMPT 4 - REVISION DEL SITIO PUBLICADO EN GITHUB PAGES
+Objetivo: cerrar evidencia web.
+
+Texto:
+Revisa el sitio publicado en GitHub Pages:
+https://heronrisk.github.io/pulso-ambiental-mty/
+
+Evalua:
+1. Si carga correctamente.
+2. Si el mapa funciona.
+3. Si las capas funcionan.
+4. Si clima historico aparece.
+5. Si actualidad ambiental aparece.
+6. Si fuentes y datos faltantes se entienden.
+7. Si se ve bien en movil y escritorio.
+8. Si hay errores de JavaScript o enlaces rotos.
+
+Entrega:
+- Problemas encontrados.
+- Mejoras menores.
+- Checklist para cerrar sitio.
+- Evidencias recomendadas.
+
+Actualiza project_memory/03_estado_sitio_y_pendientes.txt.
+
+PROMPT 5 - DOCUMENTO INTEGRAL FINAL, ESTRUCTURA Y BORRADOR
+Objetivo: redactar contenido completo antes de formatear Word.
+
+Texto:
+Con base en project_memory, actividades anteriores, sitio final y rubrica, redacta el documento integral final de Pulso Ambiental MTY.
+
+Debe incluir:
+1. Portada.
+2. Introduccion, maximo una cuartilla, de contexto nacional a local.
+3. Identificacion del problema, maximo media cuartilla, incluyendo diagnostico, problema central, causas, consecuencias y poblacion afectada.
+4. Justificacion con datos, estadisticas, ODS impactados y beneficios esperados.
+5. Descripcion del proyecto y objetivos.
+6. Objetivo general.
+7. Objetivos especificos SMART, minimo 2.
+8. Actividades por realizar.
+9. Resultados esperados.
+10. Metas.
+11. Indicadores.
+12. Actividades y cronograma, incluyendo la matriz ya realizada.
+13. Presupuesto.
+14. Riesgos.
+15. Calidad.
+16. Comunicacion.
+17. Recursos.
+18. Monitoreo y evaluacion.
+19. Conclusion de minimo 15 lineas con aprendizajes, resultados, mejoras futuras y vinculacion con la competencia del curso.
+20. Bibliografia.
+
+Mantén el estilo de Sergio: claro, directo, reflexivo y formal, pero no demasiado tecnico. No inventes datos. Si algun dato es aproximado, dilo. Si usas noticias, atribuyelas.
+
+No crees el Word todavia; primero entrega el texto estructurado para revision y actualiza project_memory si hay decisiones nuevas.
+
+PROMPT 6 - CREAR DOCUMENTO WORD FINAL
+Objetivo: convertir borrador aprobado en archivo Word entregable.
+
+Texto:
+Con el borrador aprobado del documento integral final, crea el archivo Word final.
+
+Debe:
+1. Tener portada.
+2. Usar encabezados claros.
+3. Incluir tablas donde convenga: matriz, cronograma, presupuesto, riesgos, indicadores.
+4. Tener bibliografia.
+5. Mantener formato limpio y consistente.
+6. Verificarse visualmente antes de entregarse.
+
+Usa los documentos anteriores como referencia de tono y formato, pero mejora estructura y legibilidad. Al terminar, indica ruta del archivo generado y actualiza project_memory/03_estado_sitio_y_pendientes.txt.
+
+PROMPT 7 - PRESENTACION EJECUTIVA
+Objetivo: crear contenido listo para PowerPoint o Canva.
+
+Texto:
+Lee project_memory y el documento integral final. Crea una presentacion ejecutiva para Pulso Ambiental MTY.
+
+Debe contener:
+1. Portada.
+2. Objetivo.
+3. Descripcion del proyecto.
+4. Alcance.
+5. Justificacion.
+6. Resultados esperados.
+7. Cronograma.
+8. Presupuesto.
+9. Aprendizajes.
+
+Para cada diapositiva incluye:
+- Titulo.
+- Texto breve.
+- Puntos clave.
+- Sugerencia visual.
+- Que decir al presentar.
+
+Debe ser clara, formal, ejecutiva y creativa, sin saturar texto. Usa el sitio web como evidencia visual principal.
+
+PROMPT 8 - CREAR PRESENTACION EN ARCHIVO
+Objetivo: generar PPTX o estructura final visual.
+
+Texto:
+Con la presentacion ejecutiva aprobada, genera el archivo de presentacion en PowerPoint.
+
+Debe:
+1. Ser visualmente clara.
+2. Usar pocas palabras por diapositiva.
+3. Incluir capturas del sitio cuando sea util.
+4. Tener portada, objetivos, alcance, justificacion, resultados, cronograma, presupuesto y aprendizajes.
+5. Verificarse visualmente antes de entregar.
+
+Al terminar, indica ruta del archivo generado y actualiza project_memory.
+
+PROMPT 9 - GUION PARA VIDEO DE 5 MINUTOS
+Objetivo: preparar video final.
+
+Texto:
+Lee project_memory, el sitio final, el documento final y la presentacion. Crea un guion/escaleta para un video de maximo 5 minutos sobre Pulso Ambiental MTY.
+
+Debe incluir:
+1. Nombre del proyecto.
+2. Objetivo del proyecto.
+3. ODS impactados.
+4. Implementacion.
+5. Impacto a la comunidad.
+6. Aprendizajes obtenidos.
+
+Incluye:
+- Tiempo estimado por seccion.
+- Que decir.
+- Que mostrar en pantalla.
+- Tono sugerido.
+- Cierre final.
+
+Debe sonar natural, claro y profesional, como si Sergio lo estuviera presentando.
+
+PROMPT 10 - EVIDENCIA DE PRESENTACION A COMUNIDAD
+Objetivo: cumplir fase de impacto y retroalimentacion.
+
+Texto:
+Ayudame a planear y documentar la evidencia de presentacion del proyecto a comunidad o usuarios de retroalimentacion.
+
+Necesito:
+1. A quien presentarlo de forma realista.
+2. Como hacer una presentacion breve.
+3. Que evidencia recabar.
+4. Que preguntas hacer.
+5. Como documentar retroalimentacion.
+6. Como integrar evidencia al entregable final.
+7. Formato de tabla para registrar 5 comentarios.
+
+Propón una opcion sencilla y rapida, con texto listo para enviar por mensaje o correo a las personas que revisaran el sitio.
+
+PROMPT 11 - INTEGRAR RETROALIMENTACION
+Objetivo: convertir comentarios de usuarios en evidencia usable.
+
+Texto:
+Con base en la retroalimentacion recibida de usuarios piloto, organiza la evidencia.
+
+Entrega:
+1. Tabla de personas o perfiles consultados.
+2. Comentarios recibidos.
+3. Ajustes aplicados o justificacion si no se aplicaron.
+4. Parrafo para el documento final sobre monitoreo/evaluacion.
+5. Parrafo para la evidencia final sobre impacto en comunidad.
+
+Actualiza project_memory con los aprendizajes y pendientes.
+
+PROMPT 12 - CHECKLIST FINAL CONTRA RUBRICA
+Objetivo: cerrar todo antes de entrega.
+
+Texto:
+Revisa todo el proyecto final contra la rubrica.
+
+Evalua:
+1. Documento Word.
+2. Presentacion.
+3. Video o guion de video.
+4. Evidencia de presentacion.
+5. Sitio web.
+6. Bibliografia.
+7. Conclusion final.
+8. Vinculacion con competencias del curso.
+
+Entrega:
+- Que ya cumple.
+- Que falta.
+- Que esta debil.
+- Que debo corregir antes de entregar.
+- Checklist final de entrega.
+
+Actualiza project_memory/03_estado_sitio_y_pendientes.txt con el estado final.
+
+PROMPT 13 - PAQUETE FINAL DE ENTREGA
+Objetivo: organizar archivos finales.
+
+Texto:
+Organiza el paquete final de entrega de Pulso Ambiental MTY.
+
+Incluye:
+1. Documento Word final.
+2. Presentacion final.
+3. Guion de video o evidencia del video.
+4. Evidencia de presentacion a comunidad.
+5. Capturas del sitio.
+6. Enlace de GitHub Pages.
+7. Bibliografia o anexo de fuentes si aplica.
+
+No borres archivos. Solo crea una lista final de archivos y, si es necesario, un ZIP de entrega dentro del workspace.
+
+Notas sobre prompts anteriores del usuario
+Los prompts 1 a 11.11 originales se integraron y compactaron en este plan. No se pierden; ahora estan reorganizados en fases mas ejecutables:
+- Auditoria integral.
+- Cierre del sitio.
+- Validacion publicada.
+- Documento final.
+- Presentacion.
+- Video.
+- Evidencia.
+- Checklist.
+
+Principio operativo
+No avanzar al documento final si el sitio publicado todavia no muestra la version final. El sitio es la evidencia central y debe estar cerrado primero.

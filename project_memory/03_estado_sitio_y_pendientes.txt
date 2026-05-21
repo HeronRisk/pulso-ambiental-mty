@@ -1,0 +1,202 @@
+PULSO AMBIENTAL MTY - ESTADO DEL SITIO Y PENDIENTES
+Ultima actualizacion: 21 de mayo de 2026
+
+Estado actual del sitio local
+Archivos modificados:
+- index.html
+- styles.css
+- app.js
+
+Estructura actual del sitio
+1. Navegacion principal.
+2. Hero / portada.
+3. Como usar el sitio.
+4. Mapa interactivo.
+5. Ranking y lectura activa de la capa seleccionada.
+6. Hallazgos principales.
+7. Clima historico aproximado.
+8. Actualidad ambiental.
+9. Tendencia de areas verdes y ruido.
+10. Metodologia.
+11. Fuentes del proyecto.
+12. Informacion que falta.
+13. Participacion.
+14. Footer.
+
+Estado de implementacion
+Ya implementado:
+- Navegacion clara.
+- Hero profesional.
+- Lista de municipios.
+- Mapa real/estilizado con 9 municipios.
+- Panel izquierdo para seleccionar municipio.
+- Zoom/highlight por municipio.
+- Capas: areas verdes, presion por particulas, PM2.5 y alertas recientes.
+- Hallazgos principales.
+- Clima historico aproximado 1991-2024.
+- Actualidad ambiental con 8 casos curados.
+- Fuentes descargables, consultables y de contexto.
+- Datos faltantes.
+- Participacion via correo.
+- Vista movil y escritorio.
+
+Validaciones realizadas
+- node --check app.js: aprobado.
+- Carga local con servidor estatico: aprobado.
+- Sin errores de consola en carga local.
+- Mapa: 9 municipios renderizados.
+- Botones de capas funcionando.
+- Seleccion de municipio funcionando.
+- Clima historico: 9 filas y detalle por municipio.
+- Actualidad: 8 tarjetas.
+- Fuentes: 34 tarjetas.
+- Datos faltantes: 9 tarjetas.
+- Vista movil: sin overflow horizontal.
+- Cierre UX 21 may 2026: anclas bajo navegacion sticky, vista general inicial del mapa,
+  seleccion municipal por panel, capas de particulas/PM2.5/alertas, enlaces internos y
+  tarjeta RETC como consultable validados en local.
+
+Capturas existentes
+- evidence/01_desktop_home.png
+- evidence/02_mobile_home.png
+- evidence/03_mapa_general_full.png
+- evidence/03_mapa_san_pedro.png
+- evidence/03_mapa_san_pedro_retry.png
+- evidence/03_municipio_san_pedro.png
+- evidence/04_capa_pm25.png
+- evidence/04_capa_pm25_full.png
+- evidence/04_mapa_pm25.png
+- evidence/05_metodologia_participacion.png
+- evidence/06_titulo_actualizado.png
+- evidence/07_clima_actualidad.png
+- evidence/08_desktop_cierre_mapa.png
+- evidence/08_mobile_cierre.png
+
+Sitio publicado
+URL: https://heronrisk.github.io/pulso-ambiental-mty/
+Nota: despues de cambios locales, el usuario suele hacer commit/push con GitHub Desktop.
+
+Pendientes del sitio antes de cerrar definitivamente
+1. Revisar la version publicada despues del push mas reciente.
+2. Confirmar que GitHub Pages ya muestra clima historico y actualidad ambiental.
+3. Abrir enlaces clave desde la version publicada.
+4. Confirmar que no haya discrepancias entre documento final y sitio.
+
+Pendientes de contenido para entregas finales
+1. Documento integral final.
+2. Presentacion ejecutiva.
+3. Guion de video de maximo 5 minutos.
+4. Evidencia de presentacion a comunidad / usuarios piloto.
+5. Retroalimentacion minima de 5 personas, si es posible.
+6. Checklist final contra rubrica.
+7. Bibliografia final en formato similar al usado en actividades anteriores.
+
+Auditoria integral contra rubrica final - 21 de mayo de 2026
+Documentos consultados:
+- Actividad 2.
+- Actividad 3.
+- Actividad 4.
+- Avance de Proyecto.
+- Actividad 5 corregida.
+- Sitio local y archivo EVIDENCIA_ENTREGA.md.
+
+Elementos ya aprovechables para la entrega final:
+- Problematica, zona geografica, nombre del proyecto, ODS y beneficiarios.
+- Lista base de interesados, acta constitutiva preliminar, alcance, beneficios, objetivos, metas e indicadores.
+- Matriz de actividades, cronograma por semanas, presupuesto corregido y analisis de riesgos.
+- Sitio web publicado como evidencia funcional del proyecto.
+- Capturas ya existentes de portada, mapa, capas, metodologia, participacion, clima y actualidad.
+
+Pendientes confirmados por la auditoria:
+1. Redactar la justificacion final con datos, estadisticas, citas y bibliografia depurada.
+2. Reescribir objetivos especificos finales en formato SMART explicito.
+3. Integrar en el documento final calidad, comunicacion, recursos y monitoreo/evaluacion.
+4. Crear presentacion ejecutiva final.
+5. Crear guion o escaleta final para video de maximo 5 minutos.
+6. Recabar y registrar evidencia real de presentacion y retroalimentacion.
+7. Completar EVIDENCIA_ENTREGA.md donde aun hay apartados "Por registrar".
+8. Validar la version publicada del sitio antes de usarla como evidencia final.
+
+Inconsistencias que no deben pasar al cierre:
+- Usar "Pulso Ambiental MTY" como nombre estandar del proyecto.
+- El presupuesto final debe tomar la version corregida de Actividad 5: ChatGPT/herramientas de IA como costo directo y GitHub Pages con costo cero.
+- La campana en redes mencionada en Actividad 3 no forma parte del alcance actual salvo que se declare como mejora futura.
+- El documento final debe conservar notas metodologicas para clima aproximado, noticias curadas y datos no comparables.
+
+Auditoria UX y redaccion del sitio - 21 de mayo de 2026
+Resultado general:
+- La portada actual explica rapido que es el proyecto, a quienes cubre y por que hay limitaciones metodologicas.
+- El mapa, clima, fuentes, datos faltantes y participacion ya tienen una arquitectura util para un usuario ciudadano.
+- Los cambios pendientes son de cierre UX, precision y jerarquia; no se recomienda reabrir el alcance del sitio.
+
+Cambios obligatorios recomendados para la siguiente implementacion:
+1. Ajustar el comportamiento de anclas o scroll-margin para que la barra sticky no tape encabezados al usar Mapa, Actualidad, Fuentes y otros enlaces.
+2. Colocar Ranking y Lectura activa mas cerca del mapa o explicar mejor que dependen de la capa seleccionada.
+3. Evitar que el detalle inicial del mapa parezca elegir San Pedro de forma arbitraria; usar un estado inicial orientador o aclararlo.
+4. Cambiar el nombre visible de la capa "Contaminacion" por una etiqueta mas precisa sobre particulas o presion por particulas.
+5. Mostrar fecha de revision de la seccion de actualidad para evitar que noticias curadas parezcan feed en tiempo real.
+6. Corregir clasificacion o texto de fuentes que aparecen como descargables aunque funcionan mas como consulta o referencia.
+
+Cambios opcionales recomendados:
+- Refinar el titulo del hero para mencionar mapa o exploracion ambiental de forma mas directa.
+- Reducir la carga visual de 34 tarjetas de fuentes con jerarquia, resumen o grupos colapsables.
+- Usar nombres oficiales completos de municipios al menos en una nota de alcance, aunque el mapa conserve abreviaturas.
+- Cambiar etiquetas de clima como "Mas calido" por frases que recuerden que son valores aproximados.
+- Cambiar la etiqueta "Calidad ambiental en descenso" de tendencia verde por una lectura mas acotada a areas verdes.
+
+Riesgos de lenguaje detectados:
+- "Contaminacion" puede sonar mas amplio que el indice construido con PM2.5 y PM10.
+- "Alertas recientes" y noticias pueden parecer monitoreo permanente si no se marca fecha y fuente.
+- Ranking y detalle municipal pueden leerse como comparacion total si no se mantienen visibles las notas de capa.
+- Fuentes globales, satelitales o periodisticas deben seguir separadas de datos locales comparables.
+
+Implementacion final del sitio - 21 de mayo de 2026
+Cambios aplicados:
+- Hero ajustado a "Explora el pulso ambiental de Monterrey y su metropoli".
+- Boton de capa cambiado de "Contaminacion" a "Presion por particulas".
+- Ranking y lectura activa movidos inmediatamente despues del mapa.
+- Detalle inicial del mapa convertido a "Vista general" para evitar seleccionar San Pedro sin accion del usuario.
+- Fecha visible de revision de actualidad agregada: mayo de 2026.
+- Resumen climatico reforzado con etiquetas aproximadas.
+- RETC Nuevo Leon movido de fuentes descargables a fuentes consultables.
+- Scroll-margin y navegacion movil ajustados para no tapar encabezados ni cortar enlaces.
+
+Validacion local de cierre:
+- node --check app.js sin errores.
+- Servidor local probado en 127.0.0.1.
+- Consola del navegador sin mensajes durante validacion.
+- Vista general, seleccion municipal por panel y cambio de capas validados.
+- Anclas internas sin destinos rotos.
+- Clima: 9 filas; actualidad: 8 tarjetas; fuentes: 34 tarjetas; datos faltantes: 9 tarjetas.
+- Captura desktop de cierre y captura movil generadas.
+
+Riesgos abiertos
+- Algunas noticias pueden cambiar o quedar bloqueadas por medios.
+- Algunas fuentes externas pueden no responder bien a validacion automatica.
+- El documento final debe explicar con claridad que clima historico es aproximado.
+- La seccion de actualidad no debe sonar a denuncia propia.
+- Se deben evitar cifras no verificadas o sin fuente.
+
+Mejoras menores recomendadas
+- Cambiar texto de fuente de clima a "CONAGUA/SIH via datos.gob.mx".
+- Confirmar en GitHub Pages que se vea "Actualidad revisada en mayo de 2026".
+- En documento final, separar claramente "datos locales utiles", "referencias globales" y "datos faltantes".
+- En presentacion, no intentar explicar todas las fuentes; mostrar solo las mas importantes.
+- En video, mostrar el sitio como evidencia visual principal.
+
+Estado de Git
+Despues del Prompt 3 hay cambios locales en index.html, app.js, styles.css, project_memory y
+capturas nuevas dentro de evidence. Revisar git antes de commit o push.
+
+Regla para futuros cambios al sitio
+Antes de programar:
+1. Leer project_memory.
+2. Revisar el estado de git.
+3. Revisar index.html, app.js y styles.css.
+4. Explicar que se cambiara.
+5. Editar con apply_patch.
+6. Validar con node --check app.js.
+7. Levantar servidor local.
+8. Validar en navegador local.
+9. Revisar movil y escritorio.
+10. Actualizar este archivo.

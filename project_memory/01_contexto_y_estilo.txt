@@ -1,0 +1,140 @@
+PULSO AMBIENTAL MTY - CONTEXTO, ESTILO Y BASE DEL PROYECTO
+Ultima actualizacion: 20 de mayo de 2026
+
+Resumen del proyecto
+Pulso Ambiental MTY es un proyecto academico y social que busca crear una plataforma web interactiva para reunir, organizar y visualizar informacion ambiental de los 9 municipios mas poblados de Nuevo Leon. El proposito es convertir datos dispersos y tecnicos en informacion clara, consultable y util para la ciudadania.
+
+Nombre del proyecto
+Pulso Ambiental MTY
+
+Autor
+Sergio Abraham Garza Treviño
+
+Curso
+Curso de Servicio Social ODS
+
+Profesor
+Omar Ricardo Salas Garcia
+
+Zona geografica
+Los 9 municipios mas poblados de Nuevo Leon:
+- Monterrey
+- Apodaca
+- Guadalupe
+- General Escobedo
+- San Nicolas de los Garza
+- Juarez
+- Santa Catarina
+- Garcia
+- San Pedro Garza Garcia
+
+Problemática central
+La informacion ambiental de los municipios metropolitanos de Nuevo Leon existe de forma dispersa, tecnica, fragmentada y poco accesible para la poblacion. Esto dificulta que estudiantes, habitantes, colectivos, docentes, investigadores y actores locales comprendan como se distribuyen problemas como contaminacion del aire, falta de areas verdes, calor urbano, lluvia, ruido y emisiones industriales.
+
+Problema accionable
+No existe una plataforma digital accesible, clara y centrada en la ciudadania que integre y visualice informacion ambiental relevante de los 9 municipios mas poblados de Nuevo Leon para facilitar la comprension del territorio y apoyar la toma de decisiones informadas.
+
+Objetivo general base
+Diseñar e implementar una plataforma digital interactiva que integre, visualice y comunique informacion ambiental confiable de los 9 municipios mas poblados de Nuevo Leon, con el fin de fortalecer la participacion ciudadana, la comprension del entorno y la toma de decisiones basadas en evidencia.
+
+Objetivos especificos base
+1. Recopilar, organizar y validar informacion ambiental proveniente de fuentes oficiales y academicas sobre areas verdes, contaminacion, calidad del aire, temperatura, lluvia y ruido.
+2. Desarrollar una plataforma web con visualizaciones interactivas y lenguaje accesible para facilitar la interpretacion de los datos por parte de la ciudadania.
+3. Visibilizar diferencias territoriales entre municipios en relacion con variables ambientales que afectan la salud y la calidad de vida.
+4. Promover el uso de la informacion por parte de estudiantes, habitantes, colectivos y autoridades locales para impulsar acciones de mejora ambiental.
+5. Generar una base de consulta que permita futuras actualizaciones, monitoreo e incorporacion de nuevos indicadores.
+
+ODS vinculados
+- ODS 3: Salud y bienestar.
+- ODS 11: Ciudades y comunidades sostenibles.
+- ODS 13: Accion por el clima.
+- ODS 15: Vida de ecosistemas terrestres.
+
+Beneficiarios directos
+- Habitantes de los 9 municipios priorizados.
+- Estudiantes, docentes e investigadores interesados en temas urbanos y ambientales.
+- Colectivos vecinales y organizaciones civiles que trabajan en medio ambiente, movilidad, salud publica o participacion ciudadana.
+- Tomadores de decisiones municipales que requieran informacion sintetizada para consulta o planeacion.
+
+Beneficiarios indirectos
+- Comercios y empresas locales que puedan beneficiarse de mejor planeacion ambiental.
+- Instituciones educativas y medios de comunicacion que usen la plataforma como fuente de consulta.
+- Futuras generaciones, al contar con bases de informacion mas claras para proteger el territorio.
+
+Resultados esperados
+- Sitio web funcional y navegable con informacion ambiental organizada.
+- Mapa interactivo de los 9 municipios con capas y lectura municipal.
+- Fuentes y metodologia visibles para evitar conclusiones engañosas.
+- Seccion de datos faltantes que reconoce vacios de informacion publica.
+- Documento final integral con elementos de PMBOK y ODS.
+- Presentacion ejecutiva, guion de video y evidencia de presentacion a comunidad o usuarios piloto.
+
+Alcance del proyecto
+Incluye:
+- Investigacion documental.
+- Organizacion de fuentes oficiales, academicas, periodisticas e institucionales.
+- Desarrollo de sitio web estatico.
+- Visualizaciones interactivas.
+- Documentacion academica.
+- Presupuesto, riesgos, calidad, comunicacion, recursos, monitoreo y evaluacion.
+- Evidencia de consulta o retroalimentacion.
+
+No incluye:
+- App movil.
+- Sensores propios.
+- Medicion de campo.
+- Monitoreo en tiempo real.
+- Cobertura estatal completa.
+- Diagnostico causal de salud.
+- Operacion institucional oficial.
+
+Tono de escritura del usuario
+Debe mantenerse:
+- Claro.
+- Directo.
+- Reflexivo.
+- Formal, pero no excesivamente tecnico.
+- Con conciencia social.
+- Honesto sobre limitaciones.
+- Sin lenguaje alarmista.
+- Sin acusaciones propias contra empresas o autoridades.
+
+Ideas clave del estilo de Sergio
+Actividad 2:
+Sergio reconoce que la responsabilidad ambiental no debe caer solo en individuos, pero tampoco debe ignorarse la responsabilidad personal y comunitaria. El tono combina critica estructural con compromiso practico.
+
+Actividad 3:
+El proyecto surge de la idea de que muchas personas viven los efectos de la contaminacion y el cambio climatico, pero no los relacionan claramente con su vida diaria. Las entrevistas reforzaron que la informacion tecnica debe traducirse a mensajes claros y que el clima y la contaminacion afectan salud fisica y mental.
+
+Actividad 4:
+Se formaliza la necesidad de una plataforma digital clara para los 9 municipios mas poblados. Se establece que los datos deben servir para comprender, participar y tomar decisiones.
+
+Actividad 5:
+Se convierte el proyecto en plan de trabajo con matriz, cronograma, presupuesto, riesgos y reflexion. Presupuesto final recomendado: herramientas de IA como costo directo y GitHub Pages como hosting gratuito.
+
+Avance de Proyecto:
+Se formalizan fases PMBOK iniciales: interesados, acta de constitucion, alcance, beneficios, objetivos, metas, indicadores y resultados esperados.
+
+Riesgos del proyecto que deben seguir apareciendo
+- Datos ambientales no comparables entre municipios.
+- Fuentes incompletas o no actualizadas.
+- Crecimiento excesivo del alcance.
+- Poca retroalimentacion de usuarios piloto.
+- Confusion entre dato oficial, estimacion, noticia y contexto.
+- Usar noticias de forma acusatoria sin atribucion.
+
+Lineas de redaccion utiles para documento final
+- "La falta de datos tambien es un hallazgo."
+- "El sitio no busca sustituir mediciones oficiales, sino organizar informacion publica disponible."
+- "No todas las variables pueden compararse con el mismo nivel de precision."
+- "El proyecto convierte informacion dispersa en conocimiento ciudadano util."
+- "Entender el territorio es un primer paso para cuidarlo, exigir mejores decisiones y participar con evidencia."
+
+Entregables finales requeridos
+1. Documento Word integral.
+2. Presentacion ejecutiva.
+3. Guion o video de maximo 5 minutos.
+4. Evidencia de presentacion a comunidad/personas de retroalimentacion.
+5. Sitio web publicado.
+6. Bibliografia organizada.
+7. Evidencia visual del sitio y de la presentacion.

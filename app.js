@@ -769,17 +769,6 @@ const sourceGroups = [
         body: "Apoya análisis de lluvia intensa y eventos hidrometeorológicos."
       },
       {
-        title: "RETC Nuevo León",
-        institution: "Aire NL / Gobierno de Nuevo León",
-        variable: "Emisiones industriales",
-        year: "Actualizable",
-        format: "Base consultable",
-        type: "Descargable",
-        url: "https://aire.nl.gob.mx/retc_info.html",
-        limitation: "Depende de reportes de fuentes obligadas y no siempre es fácil de mapear.",
-        body: "Fuente para contextualizar emisiones y transferencias de contaminantes."
-      },
-      {
         title: "Cobertura de suelo México",
         institution: "CONABIO",
         variable: "Cobertura vegetal y suelo",
@@ -817,6 +806,17 @@ const sourceGroups = [
         url: "https://aire.nl.gob.mx/icars2020/map_calidad_icars.php",
         limitation: "Cambia constantemente y no ofrece descarga histórica directa.",
         body: "Visor público para revisar condiciones recientes de calidad del aire."
+      },
+      {
+        title: "RETC Nuevo León",
+        institution: "Aire NL / Gobierno de Nuevo León",
+        variable: "Emisiones industriales",
+        year: "Actualizable",
+        format: "Base consultable",
+        type: "Consultable",
+        url: "https://aire.nl.gob.mx/retc_info.html",
+        limitation: "Depende de reportes de fuentes obligadas y no siempre es fácil de mapear.",
+        body: "Fuente para contextualizar emisiones y transferencias de contaminantes."
       },
       {
         title: "Ruido Guadalupe",
@@ -1171,7 +1171,7 @@ const sourceList = document.getElementById("source-list");
 const missingDataList = document.getElementById("missing-data-list");
 
 let activeLayer = "greenery";
-let selectedId = "san-pedro";
+let selectedId = null;
 let focusMunicipalityId = null;
 let selectedClimateId = "monterrey";
 
@@ -1305,14 +1305,10 @@ function selectMunicipality(municipalityId) {
   const data = getLayerData();
 
   if (activeLayer === "greenery") {
-    if (data.some((entry) => entry.id === municipalityId)) {
-      selectedId = municipalityId;
-    }
+    selectedId = data.some((entry) => entry.id === municipalityId) ? municipalityId : null;
   } else {
     const bestEntry = getBestEntryForMunicipality(data, municipalityId);
-    if (bestEntry) {
-      selectedId = bestEntry.id;
-    }
+    selectedId = bestEntry ? bestEntry.id : null;
   }
 
   updateInterface();
@@ -1333,6 +1329,7 @@ function renderMunicipalityList() {
   `;
   overviewButton.addEventListener("click", () => {
     focusMunicipalityId = null;
+    selectedId = null;
     updateInterface();
   });
   municipalityList.appendChild(overviewButton);
@@ -1461,19 +1458,6 @@ function getLayerData() {
   }));
 }
 
-function defaultSelectionForLayer() {
-  if (activeLayer === "greenery") {
-    return "san-pedro";
-  }
-  if (activeLayer === "pollution") {
-    return "san-bernabe";
-  }
-  if (activeLayer === "air") {
-    return "santa-catarina";
-  }
-  return "alert-san-pedro";
-}
-
 function applyInitialStateFromUrl() {
   const params = new URLSearchParams(window.location.search);
   const layerParam = params.get("layer");
@@ -1481,7 +1465,7 @@ function applyInitialStateFromUrl() {
 
   if (layerParam && layers[layerParam]) {
     activeLayer = layerParam;
-    selectedId = defaultSelectionForLayer();
+    selectedId = null;
   }
 
   if (municipalityParam) {
@@ -1493,7 +1477,7 @@ function applyInitialStateFromUrl() {
         activeLayer === "greenery"
           ? data.find((item) => item.id === municipalityId)
           : getBestEntryForMunicipality(data, municipalityId);
-      selectedId = entry ? entry.id : selectedId;
+      selectedId = entry ? entry.id : null;
     }
   }
 }
@@ -1591,11 +1575,46 @@ function renderMap(data) {
 }
 
 function getSelectedEntry(data) {
-  return data.find((entry) => entry.id === selectedId) ?? data[0];
+  if (!selectedId) {
+    return null;
+  }
+  return data.find((entry) => entry.id === selectedId) ?? null;
+}
+
+function renderOverviewDetail(data) {
+  const focusedMunicipality = focusMunicipalityId ? municipalityLookup[focusMunicipalityId] : null;
+  const unitsByLayer = {
+    greenery: "municipios con dato",
+    pollution: "estaciones",
+    air: "estaciones",
+    alerts: "episodios"
+  };
+
+  detailName.textContent = focusedMunicipality ? focusedMunicipality.name : "Vista general";
+  detailDescription.textContent = focusedMunicipality
+    ? `No hay un registro equivalente para ${focusedMunicipality.name} en esta capa. Revisa la nota de alcance o cambia de variable.`
+    : "Elige un municipio o un punto del mapa para abrir el detalle del mejor dato disponible en la capa activa.";
+  detailValue.textContent = data.length;
+  detailUnit.textContent = unitsByLayer[activeLayer];
+  detailYear.textContent = "Capa activa";
+  detailSource.textContent = "Cómo leer esta capa";
+  detailSource.href = "#metodologia";
+  detailSource.removeAttribute("target");
+  detailSource.removeAttribute("rel");
+  detailBars.innerHTML = `
+    <p class="chart-note">
+      La fuente, el año y las métricas aparecen al seleccionar un registro del mapa.
+    </p>
+  `;
 }
 
 function renderDetail(data) {
   const entry = getSelectedEntry(data);
+  if (!entry) {
+    renderOverviewDetail(data);
+    return;
+  }
+
   selectedId = entry.id;
   const unit = activeLayer === "alerts" ? entry.unit : layers[activeLayer].unit;
   detailName.textContent = entry.name;
@@ -1608,6 +1627,8 @@ function renderDetail(data) {
   detailYear.textContent = activeLayer === "alerts" ? entry.year : `Referencia ${entry.year}`;
   detailSource.textContent = entry.source.label;
   detailSource.href = entry.source.url;
+  detailSource.target = "_blank";
+  detailSource.rel = "noreferrer";
 
   const comparableValues = data.map((item) => item.value);
   const max = Math.max(...comparableValues);
@@ -1667,9 +1688,9 @@ function renderClimateSummary() {
   const summaryTiles = [
     { label: "Periodo", value: "1991-2024", note: "serie histórica aproximada" },
     { label: "Municipios", value: "9", note: "mismo alcance del mapa" },
-    { label: "Más cálido", value: hottest.municipality, note: `${hottest.avgTemp} °C promedio` },
-    { label: "Mayor tendencia", value: fastestWarming.municipality, note: `${formatSigned(fastestWarming.tempTrend, "°C/década")}` },
-    { label: "Más lluvioso", value: wettest.municipality, note: `${wettest.avgRain} mm/año promedio` }
+    { label: "Promedio aprox. alto", value: hottest.municipality, note: `${hottest.avgTemp} °C promedio` },
+    { label: "Tendencia aprox. mayor", value: fastestWarming.municipality, note: `${formatSigned(fastestWarming.tempTrend, "°C/década")}` },
+    { label: "Lluvia aprox. alta", value: wettest.municipality, note: `${wettest.avgRain} mm/año promedio` }
   ];
 
   climateSummaryGrid.innerHTML = "";
@@ -1913,9 +1934,9 @@ document.querySelectorAll("[data-layer]").forEach((button) => {
         activeLayer === "greenery"
           ? data.find((item) => item.id === focusMunicipalityId)
           : getBestEntryForMunicipality(data, focusMunicipalityId);
-      selectedId = entry ? entry.id : defaultSelectionForLayer();
+      selectedId = entry ? entry.id : null;
     } else {
-      selectedId = defaultSelectionForLayer();
+      selectedId = null;
     }
     updateInterface();
   });

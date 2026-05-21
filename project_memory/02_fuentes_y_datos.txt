@@ -1,0 +1,312 @@
+PULSO AMBIENTAL MTY - FUENTES, DATOS Y LIMITACIONES
+Ultima actualizacion: 20 de mayo de 2026
+
+Principio metodologico central
+No todos los datos ambientales tienen la misma escala, periodo o calidad. El proyecto debe distinguir claramente entre:
+- Dato comparable.
+- Dato por estacion.
+- Aproximacion por coordenada.
+- Reanalysis o fuente satelital.
+- Dato de contexto.
+- Dato parcial.
+- Dato faltante.
+- Actualidad curada.
+
+Variables del sitio
+1. Areas verdes.
+2. Contaminacion por particulas.
+3. PM2.5.
+4. Alertas recientes de calidad del aire.
+5. Ruido urbano.
+6. Clima historico aproximado: temperatura y lluvia.
+7. Actualidad ambiental.
+8. Datos faltantes.
+
+Fuentes descargables o procesables
+
+1. INEGI - Marco Geoestadistico Nuevo Leon
+Tema: limites municipales.
+Año: 2025.
+Formato: API / JSON.
+Enlace: https://gaia.inegi.org.mx/wscatgeo/v2/geo/mgem/19
+Uso: limites reales para el mapa de los 9 municipios.
+Limitacion: requiere procesar geometria para mapa SVG/GeoJSON.
+
+2. INEGI - Censo de Poblacion y Vivienda 2020
+Tema: poblacion municipal.
+Año: 2020.
+Formato: Excel / CSV / DBF / PDF.
+Enlace: https://www.inegi.org.mx/programas/ccpv/2020/
+Uso: justificar seleccion de 9 municipios mas poblados.
+Limitacion: no refleja cambios posteriores al censo.
+
+3. SIMA / Aire NL - Estadisticas 2018
+Tema: PM2.5, PM10, O3.
+Año: 2018.
+Formato: PDF.
+Enlace: https://aire.nl.gob.mx/docs/reportes/estadisticas/Estadisticas_2018.pdf
+Uso: datos comparables por estacion para capas de aire.
+Limitacion: corte anual de 2018, no tiempo real.
+
+4. Gobierno de Nuevo Leon / Aire NL - Reportes mensuales
+Tema: calidad del aire, temperatura y lluvia.
+Años: 2024-2026.
+Formato: PDF.
+Enlace: https://aire.nl.gob.mx/rep_mensual.html
+Uso: contexto mensual y seguimiento ambiental.
+Limitacion: no siempre organizado por municipio y no siempre comparable.
+
+5. Gobierno de Nuevo Leon - PIGECA 2023-2033
+Tema: politica de calidad del aire.
+Año: 2023-2033.
+Formato: PDF.
+Enlace: https://aire.nl.gob.mx/docs/reportes/PIGECA_2023_2033.pdf
+Uso: contexto institucional y justificacion.
+Limitacion: documento de politica publica, no base directa de datos.
+
+6. Estudio academico areas verdes ZMM
+Tema: areas verdes urbanas.
+Periodo: 2000-2019.
+Formato: PDF academico.
+Enlace: https://www.scielo.org.mx/pdf/era/v8n1/2007-901X-era-8-01-e2676.pdf
+Uso: tendencia metropolitana de areas verdes.
+Dato clave: 13.21 m2/hab en 2000 a 7.75 m2/hab en 2019.
+Limitacion: estudio de ZMM; no sustituye inventario municipal actual.
+
+7. Congreso NL / inventario SEMARNAT citado
+Tema: areas verdes por habitante.
+Año: 2011.
+Formato: PDF oficial.
+Enlace: https://www.hcnl.gob.mx/trabajo_legislativo/pdf/DDE%20281%20SO%20COMPLETO%20Y%20REVISADO.pdf
+Uso: capa comparativa de m2/hab.
+Limitacion: solo incluye cifras comparables para algunos municipios.
+
+8. CONAGUA / datos.gob.mx - Estaciones del SIH
+Tema: temperatura y lluvia.
+Año: actualizable.
+Formato: CSV.
+Enlace: https://www.datos.gob.mx/dataset/estaciones_sistema_informacion_hidrologica
+Uso: referencia oficial potencial para clima por estaciones.
+Limitacion: requiere filtrar estaciones y procesar series historicas.
+
+9. Open-Meteo Historical Weather API
+Tema: temperatura y precipitacion.
+Periodo: 1940-presente.
+Formato: API / JSON / CSV.
+Enlace: https://open-meteo.com/en/docs/historical-weather-api
+Uso: fuente base del clima historico aproximado 1991-2024.
+Limitacion: aproximacion por coordenada; no sustituye estacion local.
+
+10. NASA POWER
+Tema: clima y energia solar.
+Periodo: 1981-presente.
+Formato: API / CSV / JSON.
+Enlace: https://power.larc.nasa.gov/docs/tutorials/service-data-request/api/
+Uso: fuente global de contexto y validacion general.
+Limitacion: resolucion global, no microclima urbano.
+
+11. CHIRPS
+Tema: precipitacion historica.
+Periodo: 1981-presente.
+Formato: raster / GeoTIFF / NetCDF.
+Enlace: https://www.chc.ucsb.edu/data/chirps
+Uso: fuente satelital para lluvia historica.
+Limitacion: estimacion satelital, no pluviómetro local.
+
+12. NASA GPM IMERG
+Tema: precipitacion satelital.
+Periodo: 2000-presente.
+Formato: API / HDF5 / NetCDF.
+Enlace: https://gpm.nasa.gov/data/imerg
+Uso: lluvia intensa y eventos hidrometeorologicos.
+Limitacion: requiere procesamiento tecnico y validacion local.
+
+13. Aire NL - RETC
+Tema: emisiones industriales.
+Año: actualizable.
+Formato: base consultable.
+Enlace: https://aire.nl.gob.mx/retc_info.html
+Uso: contexto de emisiones y transferencias de contaminantes.
+Limitacion: depende de reportes de fuentes obligadas y no siempre es facil de mapear.
+
+14. CONABIO - cobertura de suelo Mexico
+Tema: cobertura vegetal y suelo.
+Año: 2020.
+Formato: datos geoespaciales.
+Enlace: https://www.gob.mx/conabio/prensa/nuevo-mapa-de-la-cobertura-de-suelo-de-mexico?idiom=es
+Uso: futura capa de cobertura vegetal.
+Limitacion: escala nacional.
+
+15. ESA WorldCover
+Tema: cobertura terrestre.
+Año: 2021.
+Formato: GeoTIFF / mapa global.
+Enlace: https://worldcover2021.esa.int/download
+Uso: aproximar superficies verdes y urbanizadas.
+Limitacion: clasificacion global que necesita validacion local.
+
+Fuentes consultables y de contexto
+
+1. Mapa Aire y Salud
+Enlace: https://aire.nl.gob.mx/icars2020/map_calidad_icars.php
+Uso: alertas y episodios recientes.
+Limitacion: cambia constantemente y no ofrece descarga historica directa.
+
+2. Ruido Guadalupe
+Enlace: https://guadalupe.gob.mx/noticia/autoridades-de-guadalupe-piden-reducir-ruido-en-celebraciones-decembrinas
+Uso: ejemplo municipal de ruido.
+Limitacion: nota institucional, no medicion continua.
+
+3. Ruido Apodaca
+Enlace: https://web.apodaca.gob.mx/refuerza-apodaca-operativos-para-respetar-niveles-de-ruido/
+Uso: ejemplo de operativos por ruido vecinal.
+Limitacion: no es serie ambiental continua.
+
+4. Buenos Vecinos San Nicolas
+Enlace: https://circuloinformativo.com/2024/12/10/buscaran-reducir-llamadas-de-alto-volumen-en-san-nicolas-con-el-programa-buenos-vecinos/
+Uso: reportes ciudadanos de alto volumen.
+Limitacion: fuente local no descargable.
+
+5. Agenda 2030
+Enlace: https://sdgs.un.org/es/2030agenda
+Uso: ODS 3, 11, 13 y 15.
+Limitacion: marco global, no datos locales.
+
+6. Nueva Agenda Urbana
+Enlace: https://onu-habitat.org/index.php/nueva-agenda-urbana
+Uso: sostenibilidad urbana y derecho a la ciudad.
+Limitacion: marco internacional.
+
+7. ODS Mexico
+Enlace: https://agenda2030.mx/
+Uso: contexto nacional de ODS.
+Limitacion: no todos los indicadores llegan a escala municipal.
+
+8. State of Global Air
+Enlace: https://www.stateofglobalair.org/data
+Uso: efectos de contaminacion atmosferica en salud.
+Limitacion: escala nacional/regional.
+
+9. Datos abiertos salud
+Enlace: https://www.gob.mx/salud/documentos/datos-abiertos-152127
+Uso: futura lectura de salud ambiental.
+Limitacion: no demuestra causalidad por si solo.
+
+10. INEGI defunciones
+Enlace: https://www.inegi.org.mx/rnm/index.php/catalog/1140
+Uso: potencial analisis de salud publica.
+Limitacion: requiere metodologia epidemiologica.
+
+11. WRI Mexico - Data for Cool Cities
+Enlace: https://es.wri.org/noticias/wri-mexico-presenta-los-primeros-resultados-del-proyecto-data-cool-cities-en-monterrey
+Uso: calor urbano en Monterrey.
+Limitacion: nota/resultados, no base municipal completa.
+
+12. ISPRS / UANL - Islas de calor Monterrey
+Enlace: https://isprs-annals.copernicus.org/articles/X-3-2024/439/2024/index.html
+Uso: contexto academico sobre infraestructura verde/azul e islas de calor.
+Limitacion: metodologia tecnica, no monitoreo operativo.
+
+13. USGS Landsat Surface Temperature
+Enlace: https://www.usgs.gov/landsat-missions/landsat-collection-2-surface-temperature
+Uso: posible futura capa de temperatura superficial.
+Limitacion: temperatura superficial, no temperatura del aire.
+
+14. WUDAPT
+Enlace: https://www.wudapt.org/data-and-tools/
+Uso: zonas climaticas locales.
+Limitacion: requiere clasificacion y validacion local.
+
+Clima historico aproximado 1991-2024
+Fuente base: Open-Meteo Historical Weather API.
+Metodologia: coordenadas representativas por municipio.
+Advertencia: aproximacion orientativa; no sustituye mediciones oficiales por estacion, colonia o municipio.
+
+Datos integrados:
+- Monterrey: 21.6 C, 585 mm/año, +0.22 C/decada, +21 mm/decada, año mas calido 2023, año mas lluvioso 2013.
+- Apodaca: 22.0 C, 575 mm/año, +0.47 C/decada, +10 mm/decada, año mas calido 2023, año mas lluvioso 2013.
+- Guadalupe: 21.8 C, 585 mm/año, +0.13 C/decada, +21 mm/decada, año mas calido 2011, año mas lluvioso 2013.
+- Escobedo: 21.6 C, 573 mm/año, +0.45 C/decada, +5 mm/decada, año mas calido 2023, año mas lluvioso 2013.
+- San Nicolas: 21.9 C, 573 mm/año, +0.31 C/decada, +5 mm/decada, año mas calido 2023, año mas lluvioso 2013.
+- Juarez: 21.9 C, 572 mm/año, +0.58 C/decada, +54 mm/decada, año mas calido 2023, año mas lluvioso 2024.
+- Santa Catarina: 21.1 C, 568 mm/año, +0.24 C/decada, +33 mm/decada, año mas calido 2023, año mas lluvioso 2010.
+- Garcia: 21.4 C, 538 mm/año, +0.11 C/decada, -6 mm/decada, año mas calido 2011, año mas lluvioso 2010.
+- San Pedro: 21.1 C, 568 mm/año, +0.20 C/decada, +33 mm/decada, año mas calido 2023, año mas lluvioso 2010.
+
+Noticias/casos de actualidad ambiental curada
+Usar como contexto, no como acusacion propia. Siempre atribuir a la fuente.
+
+1. Investigacion sobre emisores industriales.
+Fuente: Quinto Elemento Lab / The Guardian.
+Fecha: 2 dic 2025.
+Zona: Area Metropolitana de Monterrey.
+Enlace: https://quintoelab.org/project/identifican-industrias-emisiones-contaminantes-monterrey
+Cuidado: usar con atribucion; no emitir acusaciones propias.
+
+2. RETC registra empresas emisoras en Nuevo Leon.
+Fuente: Milenio / RETC Semarnat.
+Fecha: 16 feb 2026.
+Enlace: https://www.milenio.com/comunidad/enlista-semarnat-189-empresas-emiten-contaminantes-nuevo-leon
+Cuidado: contrastar con RETC original cuando sea posible.
+
+3. Refineria de Cadereyta bajo seguimiento.
+Fuente: Milenio.
+Fecha: 7 abr 2026.
+Enlace: https://www.milenio.com/comunidad/refineria-cadereyta-contamina-nl-pese-a-inversion-millonaria
+Cuidado: Cadereyta no esta dentro de los 9 municipios del mapa, pero influye en el area metropolitana.
+
+4. Derrame quimico en La Talaverna.
+Fuente: MVS Noticias.
+Fecha: 23 abr 2025.
+Enlace: https://mvsnoticias.com/nuevo-leon/2025/4/23/ternium-confirma-derrame-quimico-en-arroyo-la-talaverna-689187.html
+Cuidado: distinguir agua/industria de contaminacion del aire.
+
+5. Aire contaminado durante 2025.
+Fuente: Excelsior / analisis ciudadano.
+Fecha: 19 ene 2026.
+Enlace: https://www.excelsior.com.mx/nacional/monterrey-registro-aire-contaminado-mas-mitad-2025
+Cuidado: presentarlo como analisis ciudadano con datos oficiales.
+
+6. Exhorto para reactivar alertas ambientales.
+Fuente: Congreso de Nuevo Leon.
+Fecha: 10 mar 2026.
+Enlace: https://www.hcnl.gob.mx/sala_de_prensa/2026/03/exhortan_a_medio_ambiente_reactivar_alertas_ambientales.php
+Cuidado: es exhorto legislativo, no politica implementada.
+
+7. Recomendaciones por onda de calor.
+Fuente: Gobierno de Nuevo Leon.
+Fecha: 12 may 2025.
+Enlace: https://www.nl.gob.mx/es/boletines/emite-pcnl-recomendaciones-por-primer-onda-de-calor
+Cuidado: evento puntual, no tendencia por si solo.
+
+8. Programa estatal de arbolado urbano.
+Fuente: Gobierno de Nuevo Leon.
+Fecha: 18 jul 2025.
+Enlace: https://www.nl.gob.mx/es/boletines/nuevo-leon-lanza-el-programa-ayudamos-con-mas-arboles
+Cuidado: la entrega de arboles debe acompañarse de supervivencia y ubicacion.
+
+Datos faltantes clave
+- Ruido ambiental continuo.
+- Areas verdes actualizadas y georreferenciadas.
+- Inventario de arbolado urbano abierto.
+- Temperatura urbana por colonia.
+- Precipitacion municipal homogenea.
+- Calidad del aire historica por API.
+- Emisiones industriales georreferenciadas.
+- Indicadores de salud ambiental anonimizados.
+- Seguimiento publico de programas ambientales.
+
+Mensaje metodologico para datos faltantes
+"La ausencia de informacion no significa que el problema no exista. Significa que todavia no lo estamos midiendo con suficiente claridad."
+
+Bibliografia base para documento final
+Debe combinar fuentes de actividades anteriores con fuentes nuevas del sitio. Priorizar:
+- Gobierno del Estado de Nuevo Leon / Aire NL.
+- INEGI.
+- Naciones Unidas Agenda 2030.
+- Open-Meteo.
+- CONAGUA / datos.gob.mx.
+- PIGECA.
+- SciELO / estudio areas verdes.
+- Quinto Elemento Lab / The Guardian si se usa actualidad industrial.
+- GitHub Docs si se menciona hosting.
